@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Solutions | Vrutsa Solutions</title>
+  <meta name="description" content="Enhancing operational efficiency and enterprise performance. Vrutsa Solutions delivers business process optimization, enterprise strategy, workflow automation & operational excellence." />
+  <meta name="theme-color" content="#0a3d6b" />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="apple-touch-icon" href="./logo192.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --navy: #0b1a2e;
+      --navy-deep: #060f1d;
+      --blue-primary: #1470af;
+      --blue-mid: #0d5c96;
+      --blue-accent: #1a8fc8;
+      --blue-bright: #2da1e0;
+      --blue-sky: #38b6ff;
+      --teal: #137e8f;
+      --teal-dark: #0c5c6b;
+      --teal-mid: #0f7080;
+      --blue-pale: #e8f4fc;
+      --blue-mist: #f0f7fd;
+      --blue-ghost: #f7fbfe;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f2f4f7;
+      --gray-200: #e4e7ec;
+      --gray-300: #d0d5dd;
+      --gray-400: #98a2b3;
+      --gray-500: #667085;
+      --gray-600: #475467;
+      --gray-700: #344054;
+      --gray-800: #1d2939;
+      --shadow-subtle: 0 1px 3px rgba(0,0,0,.05);
+      --shadow-card: 0 4px 24px rgba(11,26,46,.07);
+      --shadow-lift: 0 12px 40px rgba(11,26,46,.1);
+      --shadow-deep: 0 20px 60px rgba(11,26,46,.14);
+      --radius: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+ 
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-700); line-height: 1.7;
+      background: var(--white); overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--navy); line-height: 1.2; font-weight: 700;
+    }
+    a { text-decoration: none; color: inherit; transition: all .3s var(--ease); }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+ 
+    /* ═══════ NAV ═══════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,.04);
+      transition: box-shadow .3s var(--ease);
+    }
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.06); }
+    .nav-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo-text {
+      font-family: 'Outfit', sans-serif; font-weight: 800;
+      font-size: 1.35rem; color: var(--navy); letter-spacing: -.5px;
+    }
+    .nav-logo-text em { font-style: normal; color: var(--blue-primary); }
+    .nav-menu { display: flex; align-items: center; gap: 32px; }
+    .nav-menu a {
+      font-size: .88rem; font-weight: 500; color: var(--gray-600);
+      position: relative; padding: 4px 0;
+    }
+    .nav-menu a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 2px; border-radius: 2px;
+      background: var(--blue-primary); transition: width .3s var(--ease);
+    }
+    .nav-menu a:hover { color: var(--navy); }
+    .nav-menu a:hover::after { width: 100%; }
+    .nav-menu a.current { color: var(--navy); font-weight: 600; }
+    .nav-menu a.current::after { width: 100%; }
+    .nav-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-primary); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 8px;
+      font-weight: 600; font-size: .85rem;
+      box-shadow: 0 2px 8px rgba(20,112,175,.25);
+    }
+    .nav-btn:hover { background: var(--navy); transform: translateY(-1px); }
+    .nav-btn::after { display: none !important; }
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--navy); border-radius: 2px;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+      z-index: 99;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.1rem; font-weight: 500; color: var(--gray-700); }
+ 
+    /* ═══════ HERO ═══════ */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 140px 40px 100px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, var(--blue-mist) 0%, var(--white) 40%, var(--blue-ghost) 70%, var(--white) 100%);
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: .35; pointer-events: none;
+    }
+    .hero-orb--1 {
+      width: 600px; height: 600px; top: -15%; right: -8%;
+      background: radial-gradient(circle, rgba(26,143,200,.3), transparent 70%);
+      animation: orb-drift 14s ease-in-out infinite;
+    }
+    .hero-orb--2 {
+      width: 400px; height: 400px; bottom: -10%; left: -5%;
+      background: radial-gradient(circle, rgba(19,126,143,.2), transparent 70%);
+      animation: orb-drift 18s ease-in-out infinite reverse;
+    }
+    .hero-orb--3 {
+      width: 200px; height: 200px; top: 40%; left: 30%;
+      background: radial-gradient(circle, rgba(20,112,175,.15), transparent 70%);
+      animation: orb-drift 10s ease-in-out infinite 2s;
+    }
+    @keyframes orb-drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-15px, 15px) scale(.97); }
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(20,112,175,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,112,175,.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 70%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(20,112,175,.06);
+      border: 1px solid rgba(20,112,175,.1);
+      padding: 7px 18px; border-radius: 100px;
+      font-size: .78rem; font-weight: 600;
+      color: var(--blue-primary); margin-bottom: 24px;
+      animation: fade-up .6s var(--ease) forwards; opacity: 0;
+    }
+    .hero-tag .pulse-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--blue-accent);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(26,143,200,.4); }
+      50% { opacity: .5; box-shadow: 0 0 0 4px rgba(26,143,200,0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; letter-spacing: -2px;
+      line-height: 1.06; margin-bottom: 24px;
+      animation: fade-up .6s var(--ease) .1s forwards; opacity: 0;
+    }
+    .hero h1 .text-gradient {
+      background: linear-gradient(135deg, var(--blue-primary) 0%, var(--teal) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1.12rem; color: var(--gray-500);
+      line-height: 1.8; max-width: 480px; margin-bottom: 40px;
+      animation: fade-up .6s var(--ease) .2s forwards; opacity: 0;
+    }
+    .hero-ctas {
+      display: flex; gap: 14px; align-items: center;
+      animation: fade-up .6s var(--ease) .3s forwards; opacity: 0;
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 30px; border-radius: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600; font-size: .95rem;
+      cursor: pointer; border: none; transition: all .35s var(--ease);
+    }
+    .btn-fill {
+      background: var(--blue-primary); color: var(--white);
+      box-shadow: 0 4px 18px rgba(20,112,175,.28);
+    }
+    .btn-fill:hover {
+      background: var(--navy); transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(11,26,46,.22);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--navy);
+      border: 1.5px solid var(--gray-200);
+    }
+    .btn-ghost:hover {
+      border-color: var(--blue-accent); color: var(--blue-primary);
+      transform: translateY(-2px);
+    }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-fill:hover svg { transform: translateX(3px); transition: transform .3s var(--ease); }
+ 
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      animation: fade-up .8s var(--ease) .35s forwards; opacity: 0;
+    }
+    .hero-art {
+      position: relative; width: 100%; max-width: 460px;
+      aspect-ratio: 1; margin: 0 auto;
+    }
+    .hero-ring {
+      position: absolute; border-radius: 50%;
+      border: 1.5px solid rgba(20,112,175,.08);
+    }
+    .hero-ring--1 { inset: 0; animation: spin-slow 30s linear infinite; }
+    .hero-ring--2 { inset: 14%; animation: spin-slow 22s linear infinite reverse; border-style: dashed; border-color: rgba(20,112,175,.05); }
+    .hero-ring--3 { inset: 28%; animation: spin-slow 18s linear infinite; }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .hero-core {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110px; height: 110px;
+      background: linear-gradient(135deg, var(--blue-primary), var(--teal));
+      border-radius: 26px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 16px 48px rgba(20,112,175,.3);
+    }
+    .hero-core svg { width: 48px; height: 48px; color: var(--white); }
+    .hero-node {
+      position: absolute; width: 44px; height: 44px;
+      background: var(--white); border-radius: 12px;
+      border: 1px solid var(--gray-100);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-card);
+    }
+    .hero-node svg { width: 20px; height: 20px; color: var(--blue-primary); }
+    .hero-node:nth-child(5) { top: 3%; left: 48%; }
+    .hero-node:nth-child(6) { top: 48%; right: 0; }
+    .hero-node:nth-child(7) { bottom: 3%; left: 48%; }
+    .hero-node:nth-child(8) { top: 48%; left: 0; }
+    .hero-node:nth-child(9) { top: 18%; right: 8%; }
+    .hero-node:nth-child(10) { bottom: 18%; left: 8%; }
+ 
+    /* ═══════ SECTIONS ═══════ */
+    .section { padding: 100px 40px; }
+    .section--alt { background: var(--gray-50); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--blue-primary); margin-bottom: 14px;
+    }
+    .section-tag .tag-line {
+      width: 24px; height: 2px; border-radius: 2px;
+      background: var(--blue-accent);
+    }
+    .section-heading {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      letter-spacing: -1px; margin-bottom: 18px; max-width: 600px;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--gray-500);
+      max-width: 540px; line-height: 1.8; margin-bottom: 56px;
+    }
+    .align-center { text-align: center; }
+    .push-center { margin-left: auto; margin-right: auto; }
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+ 
+    /* ═══════ OVERVIEW ═══════ */
+    .overview-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .overview-prose p {
+      font-size: 1.02rem; color: var(--gray-600);
+      line-height: 1.85; margin-bottom: 18px;
+    }
+    .overview-prose p:last-child { margin-bottom: 0; }
+    .overview-metrics {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .metric {
+      background: var(--white); border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg); padding: 30px 24px;
+      text-align: center; transition: all .35s var(--ease);
+    }
+    .metric:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift); border-color: transparent;
+    }
+    .metric-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.6rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-primary), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1.1; margin-bottom: 4px;
+    }
+    .metric-lbl { font-size: .82rem; color: var(--gray-400); font-weight: 500; }
+ 
+    /* ═══════ OFFERINGS ═══════ */
+    .offerings-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .offer-card {
+      position: relative; overflow: hidden;
+      background: var(--white); border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 44px 32px 38px; transition: all .4s var(--ease);
+    }
+    .offer-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-deep); border-color: transparent;
+    }
+    .offer-num {
+      position: absolute; top: 12px; right: 18px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 5rem; font-weight: 900;
+      line-height: 1; pointer-events: none;
+      color: var(--blue-pale); opacity: .45;
+      transition: opacity .4s var(--ease);
+    }
+    .offer-card:hover .offer-num { opacity: .7; }
+    .offer-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--blue-pale);
+      border: 1px solid rgba(20,112,175,.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .offer-icon svg { width: 24px; height: 24px; color: var(--blue-primary); }
+    .offer-card h3 {
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 8px; position: relative;
+    }
+    .offer-card p {
+      font-size: .9rem; color: var(--gray-500); line-height: 1.7;
+      position: relative;
+    }
+ 
+    /* ── Highlight card: now uses a deep blue gradient instead of near-black ── */
+    .offer-card--highlight {
+      background: linear-gradient(145deg, #0d4f8c 0%, var(--teal-dark) 100%);
+      border-color: transparent;
+    }
+    .offer-card--highlight .offer-num { color: rgba(255,255,255,.08); opacity: 1; }
+    .offer-card--highlight .offer-icon {
+      background: rgba(255,255,255,.15);
+      border-color: rgba(255,255,255,.1);
+    }
+    .offer-card--highlight .offer-icon svg { color: var(--white); }
+    .offer-card--highlight h3 { color: var(--white); }
+    .offer-card--highlight p { color: rgba(255,255,255,.7); }
+    .offer-card--highlight:hover {
+      box-shadow: 0 20px 60px rgba(13,79,140,.35);
+    }
+ 
+    /* ═══════ PROCESS ═══════ */
+    .process-rail {
+      position: relative;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+    }
+    .process-rail::before {
+      content: ''; position: absolute;
+      top: 46px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, var(--gray-200), var(--blue-accent), var(--gray-200));
+    }
+    .step {
+      position: relative; z-index: 1;
+      text-align: center; padding: 0 10px;
+    }
+    .step-badge {
+      width: 92px; height: 92px; border-radius: 50%;
+      margin: 0 auto 22px; background: var(--white);
+      border: 2px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-subtle); transition: all .4s var(--ease);
+    }
+    .step-badge span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem; font-weight: 800; color: var(--blue-accent);
+    }
+    .step:hover .step-badge {
+      border-color: var(--blue-primary);
+      box-shadow: 0 8px 32px rgba(20,112,175,.16);
+      transform: scale(1.08);
+    }
+    .step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: .82rem; color: var(--gray-500); line-height: 1.6; }
+ 
+    /* ═══════ BENEFITS ═══════ */
+    .benefits-row {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+    }
+    .ben-card {
+      text-align: center; padding: 32px 16px;
+      border-radius: var(--radius-lg);
+      background: var(--white); border: 1px solid var(--gray-100);
+      transition: all .35s var(--ease);
+    }
+    .ben-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift); border-color: transparent;
+    }
+    .ben-ico {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue-pale), rgba(20,112,175,.1));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .ben-ico svg { width: 26px; height: 26px; color: var(--blue-primary); }
+    .ben-card h4 { font-size: .92rem; font-weight: 700; margin-bottom: 5px; }
+    .ben-card p { font-size: .8rem; color: var(--gray-500); line-height: 1.55; }
+ 
+    /* ═══════ CTA ═══════ */
+    /* Now uses a rich blue gradient — no dark/near-black tones */
+    .cta-wrap {
+      position: relative; overflow: hidden;
+      background: linear-gradient(140deg, #0d4f8c 0%, #0c6ea6 45%, var(--teal-mid) 100%);
+      border-radius: var(--radius-xl);
+      padding: 80px 56px; text-align: center;
+    }
+    .cta-wrap::before {
+      content: ''; position: absolute;
+      top: -40%; right: -15%;
+      width: 550px; height: 550px; border-radius: 50%;
+      background: rgba(255,255,255,.04);
+    }
+    .cta-wrap::after {
+      content: ''; position: absolute;
+      bottom: -30%; left: -10%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(255,255,255,.03);
+    }
+    .cta-wrap h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--white); letter-spacing: -1px;
+      margin-bottom: 14px; position: relative; z-index: 1;
+    }
+    .cta-wrap p {
+      font-size: 1.05rem; color: rgba(255,255,255,.7);
+      max-width: 500px; margin: 0 auto 36px;
+      position: relative; z-index: 1;
+    }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); color: #0d4f8c;
+      padding: 16px 36px; border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: .95rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      position: relative; z-index: 1;
+      transition: all .35s var(--ease);
+      border: none; cursor: pointer;
+    }
+    .btn-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    }
+ 
+    /* ═══════ FOOTER ═══════ */
+    /* Now uses a deep royal blue instead of near-black */
+    .footer {
+      background: linear-gradient(160deg, #082d5e 0%, #0a3f70 60%, #0b4a7c 100%);
+      padding: 72px 40px 32px;
+      color: rgba(255,255,255,.55);
+    }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 44px; margin-bottom: 52px;
+    }
+    .footer-brand .nav-logo-text {
+      color: var(--white); font-size: 1.4rem; margin-bottom: 14px; display: block;
+    }
+    .footer-brand p { font-size: .88rem; line-height: 1.75; max-width: 270px; }
+    .footer h5 {
+      color: var(--white); font-size: .82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px;
+    }
+    .footer li { margin-bottom: 11px; }
+    .footer li a { font-size: .86rem; color: rgba(255,255,255,.45); }
+    .footer li a:hover { color: var(--white); }
+    .footer-bar {
+      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .8rem;
+    }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-socials a:hover { background: var(--blue-primary); }
+    .footer-socials svg { width: 15px; height: 15px; fill: rgba(255,255,255,.5); }
+    .footer-socials a:hover svg { fill: var(--white); }
+ 
+    /* ═══════ RESPONSIVE ═══════ */
+    @media (max-width: 1060px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .overview-row { grid-template-columns: 1fr; gap: 48px; }
+      .offerings-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-rail { grid-template-columns: repeat(3, 1fr); row-gap: 36px; }
+      .process-rail::before { display: none; }
+      .benefits-row { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-wrap { padding: 0 24px; }
+      .hero { min-height: auto; padding: 120px 24px 60px; }
+      .section { padding: 72px 24px; }
+      .section-heading { font-size: 1.8rem; }
+      .offerings-grid { grid-template-columns: 1fr; }
+      .process-rail { grid-template-columns: 1fr 1fr; }
+      .benefits-row { grid-template-columns: 1fr 1fr; }
+      .cta-wrap { padding: 52px 24px; border-radius: var(--radius-lg); }
+      .footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bar { flex-direction: column; gap: 14px; text-align: center; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .process-rail { grid-template-columns: 1fr; }
+      .benefits-row { grid-template-columns: 1fr; }
+      .overview-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-wrap">
+      <a href="/" class="nav-logo">
+        <img src="./logo.png" alt="Vrutsa Solutions" onerror="this.style.display='none'" />
+        <span class="nav-logo-text">Vrutsa<em>Solutions</em></span>
+      </a>
+      <div class="nav-menu">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#services" class="current">Services</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#contact" class="nav-btn">Talk to Experts</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="/#about" onclick="closeMobile()">About</a>
+    <a href="/#services" onclick="closeMobile()">Services</a>
+    <a href="/#contact" onclick="closeMobile()">Contact</a>
+    <a href="/#contact" class="btn btn-fill" onclick="closeMobile()">Talk to Experts</a>
+  </div>
+ 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag"><span class="pulse-dot"></span> Service — 01</div>
+        <h1>Business<br><span class="text-gradient">Solutions</span></h1>
+        <p class="hero-desc">Enhancing operational efficiency and enterprise performance — strategic consulting, process optimization, and scalable systems that drive real growth.</p>
+        <div class="hero-ctas">
+          <a href="#cta" class="btn btn-fill">
+            Get Started
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="#overview" class="btn btn-ghost">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-art">
+          <div class="hero-ring hero-ring--1"></div>
+          <div class="hero-ring hero-ring--2"></div>
+          <div class="hero-ring hero-ring--3"></div>
+          <div class="hero-core">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
+          </div>
+          <div class="hero-node"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg></div>
+          <div class="hero-node"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <div class="hero-node"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div>
+          <div class="hero-node"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></div>
+          <div class="hero-node"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg></div>
+          <div class="hero-node"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="container reveal">
+      <div class="overview-row">
+        <div class="overview-prose">
+          <span class="section-tag"><span class="tag-line"></span> Overview</span>
+          <h2 class="section-heading">Why Business Solutions Matter</h2>
+          <p>Every enterprise hits inflection points — where legacy processes slow growth, operational costs creep up, and teams struggle to align around shared goals. Vrutsa Solutions steps in as your strategic partner to diagnose, redesign, and optimize the way your business operates.</p>
+          <p>We combine deep industry expertise with data-driven frameworks to deliver outcomes you can measure: leaner operations, faster decisions, and sustainable competitive advantage.</p>
+        </div>
+        <div class="overview-metrics">
+          <div class="metric"><div class="metric-val">35%</div><div class="metric-lbl">Avg. Efficiency Gain</div></div>
+          <div class="metric"><div class="metric-val">2.5&times;</div><div class="metric-lbl">ROI on Engagement</div></div>
+          <div class="metric"><div class="metric-val">95%</div><div class="metric-lbl">Client Satisfaction</div></div>
+          <div class="metric"><div class="metric-val">60+</div><div class="metric-lbl">Solutions Delivered</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CORE SERVICES -->
+  <section class="section section--alt" id="offerings">
+    <div class="container reveal">
+      <div class="align-center">
+        <span class="section-tag push-center" style="justify-content:center"><span class="tag-line"></span> Core Services <span class="tag-line"></span></span>
+        <h2 class="section-heading push-center align-center">What We Deliver</h2>
+        <p class="section-sub push-center align-center">End-to-end business solutions designed to optimize operations and accelerate growth.</p>
+      </div>
+      <div class="offerings-grid">
+        <div class="offer-card">
+          <span class="offer-num">01</span>
+          <div class="offer-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"/></svg></div>
+          <h3>Business Process Optimization</h3>
+          <p>Streamline workflows, eliminate bottlenecks, and redesign processes for maximum throughput and minimal waste.</p>
+        </div>
+        <div class="offer-card">
+          <span class="offer-num">02</span>
+          <div class="offer-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg></div>
+          <h3>Enterprise Strategy Consulting</h3>
+          <p>Align vision, market positioning, and execution roadmaps to drive sustainable competitive advantage.</p>
+        </div>
+        <div class="offer-card">
+          <span class="offer-num">03</span>
+          <div class="offer-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div>
+          <h3>Workflow Automation</h3>
+          <p>Automate repetitive tasks and handoffs with intelligent systems that reduce errors and free your teams.</p>
+        </div>
+        <div class="offer-card">
+          <span class="offer-num">04</span>
+          <div class="offer-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg></div>
+          <h3>Performance Improvement</h3>
+          <p>Set KPIs, build dashboards, and implement feedback loops that turn data into measurable performance gains.</p>
+        </div>
+        <div class="offer-card offer-card--highlight">
+          <span class="offer-num">05</span>
+          <div class="offer-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg></div>
+          <h3>Operational Excellence</h3>
+          <p>Build a culture of continuous improvement with lean frameworks, quality systems, and governance models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- APPROACH -->
+  <section class="section" id="process">
+    <div class="container reveal">
+      <div class="align-center">
+        <span class="section-tag push-center" style="justify-content:center"><span class="tag-line"></span> Our Approach <span class="tag-line"></span></span>
+        <h2 class="section-heading push-center align-center">How We Work With You</h2>
+        <p class="section-sub push-center align-center">A structured, transparent methodology that turns complexity into clarity.</p>
+      </div>
+      <div class="process-rail">
+        <div class="step"><div class="step-badge"><span>01</span></div><h4>Analyze</h4><p>Deep-dive into current operations, systems, and pain points with stakeholder interviews and data audits.</p></div>
+        <div class="step"><div class="step-badge"><span>02</span></div><h4>Strategize</h4><p>Define transformation priorities, quick wins, and a phased roadmap with clear ownership and timelines.</p></div>
+        <div class="step"><div class="step-badge"><span>03</span></div><h4>Implement</h4><p>Execute changes in agile sprints — process redesigns, tool rollouts, and team enablement in parallel.</p></div>
+        <div class="step"><div class="step-badge"><span>04</span></div><h4>Monitor</h4><p>Track KPIs and adoption metrics in real time, surfacing issues before they become blockers.</p></div>
+        <div class="step"><div class="step-badge"><span>05</span></div><h4>Optimize</h4><p>Continuously refine and scale what works — embedding improvement into your organizational DNA.</p></div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- BENEFITS -->
+  <section class="section section--alt" id="benefits">
+    <div class="container reveal">
+      <div class="align-center">
+        <span class="section-tag push-center" style="justify-content:center"><span class="tag-line"></span> Why Vrutsa <span class="tag-line"></span></span>
+        <h2 class="section-heading push-center align-center">Outcomes You Can Measure</h2>
+        <p class="section-sub push-center align-center">Every engagement is designed around results that compound over time.</p>
+      </div>
+      <div class="benefits-row">
+        <div class="ben-card">
+          <div class="ben-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div>
+          <h4>Improved Efficiency</h4>
+          <p>Leaner operations that move faster with fewer resources.</p>
+        </div>
+        <div class="ben-card">
+          <div class="ben-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg></div>
+          <h4>Reduced Costs</h4>
+          <p>Eliminate waste and optimize spend across every function.</p>
+        </div>
+        <div class="ben-card">
+          <div class="ben-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
+          <h4>Better Decisions</h4>
+          <p>Data-backed insights that replace gut-feel with evidence.</p>
+        </div>
+        <div class="ben-card">
+          <div class="ben-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg></div>
+          <h4>Higher Productivity</h4>
+          <p>Teams focused on high-value work, not manual busywork.</p>
+        </div>
+        <div class="ben-card">
+          <div class="ben-ico"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+          <h4>Scalable Systems</h4>
+          <p>Foundations that grow with demand without rework.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CTA -->
+  <section class="section" id="cta">
+    <div class="container reveal">
+      <div class="cta-wrap">
+        <h2>Transform Your Business Operations</h2>
+        <p>Let's build a strategy that turns inefficiency into your biggest competitive advantage.</p>
+        <a href="/#contact" class="btn-white">Contact Us &rarr;</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">Vrutsa<em>Solutions</em></span>
+        <p>Empowering enterprises with innovative technology solutions, AI-driven automation, and digital transformation strategies.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/business-solutions.html">Business Solutions</a></li>
+          <li><a href="/#services">Technology &amp; SaaS</a></li>
+          <li><a href="/#services">AI &amp; Automation</a></li>
+          <li><a href="/digital-transformation.html">Digital Transformation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/#about">About Us</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a></li>
+          <li><a href="/">www.vrutsasolutions.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>&copy; 2026 Vrutsa Solutions. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/vrutsa-solutions/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+ 
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => mobile.classList.toggle('open'));
+    function closeMobile() { mobile.classList.remove('open'); }
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
+ 
