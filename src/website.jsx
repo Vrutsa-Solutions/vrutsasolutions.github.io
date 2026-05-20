@@ -108,16 +108,19 @@ function FocusAreas() {
       img: `${process.env.PUBLIC_URL}/assets/Business_growth_challenges.png`,
       title: "Business growth challenges",
       desc: "Practical solutions to overcome obstacles and sustain long-term business growth.",
+      link: "/business-growth.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Operational_issues.avif`,
       title: "Operational issues",
       desc: "Identifying and resolving process gaps to improve efficiency and daily operations.",
+      link: "/operational-issues.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Technology_digital_gaps.avif`,
       title: "Technology & digital gaps",
       desc: "Bridging skill and system gaps to improve digital adoption and performance.",
+      link: "/technology-digital.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Funding_investor_readiness.png`,
@@ -162,20 +165,40 @@ function FocusAreas() {
 
       {/* GRID */}
       <div className="focus-grid">
-        {data.map((item, index) => (
-          <div className="focus-card" key={index}>
-            <img src={item.img} alt={item.title} />
+      {data.map((item, index) => {
+        const hrefMap = {
+          "Business growth challenges": "/business-growth.html",
+          "Operational issues": "/operational-issues.html",
+          "Technology & digital gaps": "/technology-digital.html",
+        };
+        const href = item.link || hrefMap[item.title] || "#";
 
-            <div className="focus-content">
-              <h4>{item.title}</h4>
-
-              <div className="hover-content">
-                <span className="line"></span>
-                <p>{item.desc}</p>
+        return (
+          <a
+            key={index}
+            href={href}
+            className="focus-card-link"
+            style={{ textDecoration: "none", color: "inherit" }}
+            onClick={(e) => {
+              if (href && href !== "#") {
+                e.preventDefault();
+                window.location.href = href;
+              }
+            }}
+          >
+            <div className="focus-card">
+              <img src={item.img} alt={item.title} />
+              <div className="focus-content">
+                <h4>{item.title}</h4>
+                <div className="hover-content">
+                  <span className="line"></span>
+                  <p>{item.desc}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          </a>
+        );
+      })}
       </div>
     </section>
   );

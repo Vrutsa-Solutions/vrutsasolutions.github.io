@@ -289,6 +289,10 @@ body {
     transform: translateY(0);
 }
 
+/* make the anchor wrap the whole card clickable */
+.focus-card-link { display: block; width: 100%; }
+.focus-card-link .focus-card { text-decoration: none; color: inherit; }
+
 /* MOBILE */
 @media (max-width: 768px) {
     .focus-grid {
