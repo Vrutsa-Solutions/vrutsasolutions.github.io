@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vrutsa Solutions — Tech Guidance</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --logo-blue:      #0C396F;
+  --logo-green:     #3E9B38;
+  --secondary-blue: #1D7FBE;
+  --accent-cyan:    #1696D2;
+  --footer-navy:    #0A2B53;
+  --light-bg:       #EEF7FC;
+  --white:          #FFFFFF;
+  --text-dark:      #0F172A;
+  --text-body:      #334155;
+  --text-light:     #64748B;
+  --border:         #D9E6F2;
+  --card-shadow:    0 4px 18px rgba(12,57,111,0.07);
+  --hero-gradient:  linear-gradient(135deg, #0C396F 0%, #1D7FBE 55%, #1696D2 100%);
+  --cta-gradient:   linear-gradient(135deg, #0C396F, #1D7FBE);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(--light-bg); color: var(--text-dark); }
+
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 68px; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 2px 12px rgba(12,57,111,0.07); display: flex; align-items: center; padding: 0 48px; justify-content: space-between; }
+.nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; flex-shrink: 0; }
+.nav-logo-img { height: 42px; width: auto; object-fit: contain; border-radius: 0; border: none; background: transparent; }
+.nav-brand-text { font-family: 'Manrope', sans-serif; font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; line-height: 1; }
+.nav-brand-text .nv { color: #0C396F; }
+.nav-brand-text .ns { color: #1A6FC4; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-link { padding: 8px 14px; border-radius: 6px; font-size: .855rem; font-weight: 500; color: var(--text-light); text-decoration: none; white-space: nowrap; cursor: pointer; background: transparent; border: none; transition: color .18s, background .18s; }
+.nav-link:hover { color: #0C396F; background: var(--light-bg); }
+.nav-link.active { color: #0C396F; font-weight: 700; position: relative; }
+.nav-link.active::after { content: ''; position: absolute; bottom: 2px; left: 14px; right: 14px; height: 2.5px; background: var(--accent-cyan); border-radius: 2px; }
+.nav-cta { margin-left: 12px; padding: 9px 22px; border-radius: 8px; background: #1A6FC4; color: #fff; font-size: .84rem; font-weight: 700; text-decoration: none; white-space: nowrap; border: none; cursor: pointer; letter-spacing: .02em; transition: background .18s, box-shadow .2s, transform .18s; display: inline-block; }
+.nav-cta:hover { background: #0C396F; box-shadow: 0 6px 18px rgba(12,57,111,0.28); transform: translateY(-1px); }
+
+.subnav { position: fixed; top: 68px; left: 0; right: 0; z-index: 900; height: 46px; background: var(--logo-blue); display: flex; align-items: center; padding: 0 48px; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.subnav::-webkit-scrollbar { display: none; }
+.sn-btn { padding: 0 16px; height: 46px; line-height: 46px; font-size: .74rem; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,0.62); background: transparent; border: none; cursor: pointer; white-space: nowrap; border-bottom: 2.5px solid transparent; transition: color .18s, border-color .18s, background .18s; text-transform: uppercase; }
+.sn-btn:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.07); }
+.sn-btn.on { color: #fff; border-bottom-color: #fff; }
+
+.page-wrap { padding-top: 68px; min-height: 100vh; background: var(--white); }
+
+.hero { min-height: 58vh; display: flex; align-items: flex-end; padding: 90px 56px 72px; position: relative; overflow: hidden; background: var(--hero-gradient); }
+.hero::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 55% 70% at 92% 25%, rgba(255,255,255,0.09) 0%, transparent 55%), radial-gradient(ellipse 35% 45% at 5% 80%, rgba(12,57,111,0.3) 0%, transparent 50%); }
+.hi { position: relative; z-index: 2; max-width: 780px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; padding: 6px 18px; border-radius: 100px; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.92); }
+.hero h1 { font-family: 'Ariel', serif; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.0; letter-spacing: -.02em; margin-bottom: 24px; color: #FFFFFF; }
+.hero h1 i { font-style: normal; color: rgba(255,255,255,0.72); }
+.hero .lead { font-size: 1.00rem; font-weight: 200; line-height: 1.7; max-width: 560px; color: rgba(255,255,255,0.78); }
+.hero-accent { position: absolute; right: 56px; top: 50%; transform: translateY(-50%); z-index: 2; opacity: 0.07; font-family: 'Ariel', serif; font-size: 11rem; color: #fff; line-height: 1; letter-spacing: -0.05em; pointer-events: none; }
+
+.bw { padding: 0 56px 100px; background: var(--white); }
+
+.sh { margin-bottom: 34px; }
+.sh h2 { font-family: 'Ariel', serif; font-size: 2.1rem; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px; color: var(--logo-blue); }
+.sh p { font-size: .9375rem; font-weight: 400; color: var(--text-body); max-width: 520px; }
+
+.sbar { display: grid; grid-template-columns: repeat(4,1fr); margin-bottom: 68px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+.sc { padding: 30px 22px; text-align: center; background: var(--white); border-right: 1px solid var(--border); }
+.sc:last-child { border-right: none; }
+.sn { font-family: 'Ariel', serif; font-size: 2.5rem; line-height: 1; letter-spacing: -.03em; margin-bottom: 7px; color: var(--secondary-blue); }
+.sl { font-size: .76rem; font-weight: 500; color: var(--text-light); }
+
+.g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 56px; }
+
+.cd { padding: 34px 32px; border-radius: 16px; background: var(--white); border: 1px solid var(--border); box-shadow: var(--card-shadow); position: relative; overflow: hidden; transition: transform .22s, box-shadow .22s, border-color .22s; cursor: default; }
+.cd:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(12,57,111,0.12); border-color: var(--accent-cyan); }
+.cd .ico { font-size: 1.6rem; margin-bottom: 16px; display: block; }
+.cd h3 { font-family: 'Ariel', serif; font-size: 1.18rem; line-height: 1.2; margin-bottom: 9px; color: var(--logo-blue); }
+.cd p { font-size: .865rem; font-weight: 400; color: var(--text-body); line-height: 1.62; }
+.cd .bg-num { position: absolute; bottom: 14px; right: 20px; font-family: 'Ariel', serif; font-size: 4rem; opacity: .04; line-height: 1; color: var(--logo-blue); }
+.cd.hl { border-top: 3px solid var(--accent-cyan); }
+
+.pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.pill { padding: 4px 13px; border-radius: 100px; font-size: .7rem; font-weight: 600; letter-spacing: .04em; background: var(--light-bg); color: var(--secondary-blue); border: 1px solid var(--border); }
+
+.ps { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 56px; }
+.pstep { display: flex; gap: 24px; padding: 30px 34px; border-bottom: 1px solid var(--border); background: var(--white); transition: background .2s; }
+.pstep:last-child { border-bottom: none; }
+.pstep:hover { background: var(--light-bg); }
+.pnum { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Ariel', serif; font-size: 1rem; background: var(--light-bg); color: var(--secondary-blue); border: 1.5px solid var(--accent-cyan); margin-top: 2px; }
+.pstep h4 { font-family: 'Ariel', serif; font-size: 1.07rem; margin-bottom: 6px; color: var(--logo-blue); }
+.pstep p { font-size: .865rem; font-weight: 400; color: var(--text-body); line-height: 1.58; }
+
+.wc { border-radius: 16px; padding: 46px; margin-bottom: 56px; display: flex; gap: 48px; align-items: center; background: var(--light-bg); border: 1px solid var(--border); }
+.wct { flex: 1; }
+.wct h3 { font-family: 'Ariel', serif; font-size: 1.45rem; margin-bottom: 10px; color: var(--logo-blue); }
+.wct p { font-size: .9rem; font-weight: 400; color: var(--text-body); line-height: 1.65; margin-bottom: 16px; }
+.wcd { flex: 0 0 160px; font-family: 'Ariel', serif; font-size: 5.5rem; opacity: .07; color: var(--logo-blue); line-height: 1; text-align: center; }
+
+.cta { border-radius: 16px; padding: 50px 54px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; background: var(--cta-gradient); position: relative; overflow: hidden; }
+.cta::after { content: ''; position: absolute; top: -40%; right: -5%; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
+.cta h3 { font-family: 'Ariel', serif; font-size: 2rem; line-height: 1.15; margin-bottom: 8px; color: #FFFFFF; }
+.cta h3 i { font-style: normal; color: rgba(255,255,255,0.75); }
+.cta p { font-size: .9375rem; font-weight: 400; color: rgba(255,255,255,0.75); max-width: 420px; }
+.cta-bs { display: flex; gap: 12px; flex-shrink: 0; }
+.btn { padding: 13px 28px; border-radius: 9px; font-family: 'Ariel', sans-serif; font-weight: 700; font-size: .84rem; cursor: pointer; text-decoration: none; border: none; transition: all .2s; display: inline-block; }
+.btn-w { background: #FFFFFF; color: var(--logo-blue); }
+.btn-w:hover { background: var(--light-bg); box-shadow: 0 8px 24px rgba(0,0,0,0.2); transform: translateY(-1px); }
+
+.section-gap { margin-top: 72px; }
+
+.site-footer { background: #0A2B53; color: #fff; padding: 64px 56px 0; margin-top: 0; }
+.footer-inner { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 22px; text-decoration: none; }
+.footer-logo-img { height: 52px; width: auto; object-fit: contain; border-radius: 0; border: none; background: transparent; }
+.footer-brand-text { font-family: 'Ariel', sans-serif; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1; }
+.footer-brand-text .fv { color: #FFFFFF; }
+.footer-brand-text .fs { color: #4DB8FF; }
+.footer-tagline { font-size: .865rem; font-weight: 400; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 290px; }
+.footer-col-title { font-size: .68rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-col ul li a { font-size: .875rem; font-weight: 400; color: rgba(255,255,255,0.62); text-decoration: none; transition: color .18s; cursor: pointer; }
+.footer-col ul li a:hover { color: #fff; }
+.footer-contact-link { font-size: .875rem; font-weight: 400; color: rgba(255,255,255,0.62); text-decoration: none; display: block; margin-bottom: 11px; transition: color .18s; }
+.footer-contact-link:hover { color: #4DB8FF; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; gap: 16px; }
+.footer-copy { font-size: .8rem; font-weight: 400; color: rgba(255,255,255,0.38); }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social-btn { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.13); color: rgba(255,255,255,0.55); text-decoration: none; transition: background .18s, color .18s, border-color .18s; cursor: pointer; }
+.footer-social-btn:hover { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3); }
+.footer-social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+@media(max-width:900px) {
+  .navbar, .subnav { padding: 0 18px; }
+  .nav-brand-text { font-size: 1rem; }
+  .nav-link { padding: 7px 8px; font-size: .78rem; }
+  .nav-cta { padding: 8px 13px; font-size: .76rem; margin-left: 6px; }
+  .sn-btn { padding: 0 11px; font-size: .68rem; }
+  .hero { padding: 72px 24px 56px; }
+  .hero-accent { display: none; }
+  .bw { padding: 0 24px 72px; }
+  .g3 { grid-template-columns: 1fr; }
+  .sbar { grid-template-columns: repeat(2,1fr); }
+  .wc { flex-direction: column; gap: 20px; }
+  .wcd { display: none; }
+  .cta { flex-direction: column; padding: 36px 24px; }
+  .cta-bs { width: 100%; }
+  .btn { flex: 1; text-align: center; }
+  .site-footer { padding: 48px 24px 0; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media(max-width:580px) {
+  .nav-links { display: none; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-brand" href="./index.html">
+    <img class="nav-logo-img" src="./logo.png" alt="Vrutsa Solutions Logo">
+    <span class="nav-brand-text"><span class="nv">Vrutsa</span><span class="ns">Solutions</span></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link" href="./index.html#about">About</a>
+    <a class="nav-link active" href="./index.html#services">Services</a>
+    <a class="nav-link" href="./index.html#contact">Contact</a>
+    <a class="nav-cta" href="./index.html#contact">Talk to Experts</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="hero">
+    <div class="hero-accent">Tech</div>
+    <div class="hi">
+      <div class="eyebrow">&#9889; Individual &middot; Tech Guidance</div>
+      <h1>Navigate the<br><i>tech frontier.</i></h1>
+      <p class="lead">Technology moves fast. Knowing which skills to learn, which tools to adopt, and which trends to bet on is the difference between staying relevant and falling behind. Vrutsa keeps you ahead of the curve.</p>
+    </div>
+  </div>
+
+  <div class="bw">
+
+    <div class="section-gap"></div>
+    <div class="sbar">
+      <div class="sc"><div class="sn">6</div><div class="sl">High-growth tech domains</div></div>
+      <div class="sc"><div class="sn">Personalised</div><div class="sl">Week-by-week roadmap</div></div>
+      <div class="sc"><div class="sn">Real projects</div><div class="sl">Portfolio employers trust</div></div>
+      <div class="sc"><div class="sn">Free</div><div class="sl">Tech skills assessment</div></div>
+    </div>
+
+    <div class="sh">
+      <h2>Tech domains we guide you through</h2>
+      <p>Clear, structured pathways for entering and advancing in high-growth tech fields.</p>
+    </div>
+    <div class="g3">
+      <div class="cd hl">
+        <span class="ico">&#129504;</span>
+        <h3>AI &amp; Machine Learning</h3>
+        <p>From Python basics to production ML systems. Covers NLP, deep learning, and real-world deployment.</p>
+        <div class="pills"><span class="pill">Python</span><span class="pill">TensorFlow</span><span class="pill">LLMs</span><span class="pill">MLOps</span></div>
+        <span class="bg-num">01</span>
+      </div>
+      <div class="cd hl">
+        <span class="ico">&#9729;&#65039;</span>
+        <h3>Cloud Computing</h3>
+        <p>AWS, Azure, and GCP with real deployment workflows, certifications, and DevOps practices.</p>
+        <div class="pills"><span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">GCP</span><span class="pill">DevOps</span></div>
+        <span class="bg-num">02</span>
+      </div>
+      <div class="cd hl">
+        <span class="ico">&#9981;&#65039;</span>
+        <h3>Blockchain Development</h3>
+        <p>From Solidity smart contracts to DeFi and NFT platforms &mdash; build real decentralised apps across Ethereum and Solana ecosystems.</p>
+        <div class="pills"><span class="pill">Solidity</span><span class="pill">Ethereum</span><span class="pill">Solana</span><span class="pill">Web3.js</span></div>
+        <span class="bg-num">03</span>
+      </div>
+      <div class="cd hl">
+        <span class="ico">&#128272;</span>
+        <h3>Cybersecurity</h3>
+        <p>Ethical hacking, SOC, penetration testing, and security certifications for real-world roles.</p>
+        <div class="pills"><span class="pill">Ethical hacking</span><span class="pill">OSCP</span><span class="pill">SOC</span><span class="pill">CompTIA</span></div>
+        <span class="bg-num">04</span>
+      </div>
+      <div class="cd hl">
+        <span class="ico">&#128202;</span>
+        <h3>Data Science &amp; Analytics</h3>
+        <p>SQL, Python, BI tools, and analytics projects focused on real business insights and decisions.</p>
+        <div class="pills"><span class="pill">SQL</span><span class="pill">Power BI</span><span class="pill">Tableau</span><span class="pill">Statistics</span></div>
+        <span class="bg-num">05</span>
+      </div>
+      <div class="cd hl">
+        <span class="ico">&#9883;&#65039;</span>
+        <h3>Quantum Computing</h3>
+        <p>Learn quantum circuits, algorithms (Shor's, Grover's), and implementation using Qiskit, Cirq, and Braket.</p>
+        <div class="pills"><span class="pill">Qiskit</span><span class="pill">Cirq</span><span class="pill">Amazon Braket</span><span class="pill">Quantum Algorithms</span></div>
+        <span class="bg-num">06</span>
+      </div>
+    </div>
+
+    <div class="sh">
+      <h2>How Vrutsa builds your tech roadmap</h2>
+      <p>Personalised, structured, and built around where you want to go &mdash; not just what's trending.</p>
+    </div>
+    <div class="ps">
+      <div class="pstep">
+        <div class="pnum">1</div>
+        <div>
+          <h4>Skills Assessment &amp; Domain Selection</h4>
+          <p>Evaluate your current technical level, background, and career goals to identify the tech domain with the highest ROI for your specific situation.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pnum">2</div>
+        <div>
+          <h4>Learning Path Design</h4>
+          <p>A week-by-week curriculum with curated resources, projects, and milestones &mdash; built around your available hours, not a generic bootcamp schedule.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pnum">3</div>
+        <div>
+          <h4>Portfolio &amp; Project Building</h4>
+          <p>Build real projects that demonstrate your skills to employers. Vrutsa guides your GitHub presence, project documentation, and technical storytelling.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pnum">4</div>
+        <div>
+          <h4>Certification &amp; Job Readiness</h4>
+          <p>Target the right certifications (AWS, Google, Microsoft, CompTIA) and prepare for technical interviews with role-specific mock sessions and code review.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wc">
+      <div class="wct">
+        <h3>Emerging tech trends &mdash; stay ahead, not behind</h3>
+        <p>Vrutsa's Tech Intelligence feed keeps you updated on what's actually being hired for, what skills are commanding premium salaries, and which tools are becoming industry standard &mdash; so your learning investment stays relevant as the market evolves.</p>
+        <div class="pills"><span class="pill">AI/ML demand trends</span><span class="pill">Salary benchmarks</span><span class="pill">In-demand certifications</span><span class="pill">Emerging languages</span><span class="pill">Tool adoption curves</span></div>
+      </div>
+      <div class="wcd">Tech</div>
+    </div>
+
+    <div class="cta">
+      <div>
+        <h3>Your tech career<br><i>starts now.</i></h3>
+        <p>Get a personalised roadmap and timeline to enter high-paying tech roles.</p>
+      </div>
+      <div class="cta-bs">
+        <a href="./index.html#contact" class="btn btn-w">Free Tech Assessment</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="./index.html">
+        <span class="footer-brand-text"><span class="fv">Vrutsa</span><span class="fs">Solutions</span></span>
+      </a>
+      <p class="footer-tagline">Empowering forward-thinking enterprises with cloud infrastructure, AI-driven automation, and digital transformation strategies that deliver compounding ROI.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul>
+        <li><a href="./career-guidance.html">Career Guidance</a></li>
+        <li><a href="./business-growth-ind.html">Business Growth</a></li>
+        <li><a href="./personal-brand.html">Personal Brand</a></li>
+        <li><a href="./education-abroad.html">Education &amp; Abroad</a></li>
+        <li><a href="./investment-opportunities.html">Investment Opportunities</a></li>
+        <li><a href="./tech-guidance.html">Tech Guidance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="./index.html#about">About Us</a></li>
+        <li><a href="./index.html#services">Services</a></li>
+        <li><a href="./index.html#contact">Careers</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Get In Touch</div>
+      <a class="footer-contact-link" href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a>
+      <a class="footer-contact-link" href="https://www.vrutsasolutions.com" target="_blank">www.vrutsasolutions.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Vrutsa Solutions. All rights reserved.</span>
+    <div class="footer-socials">
+      <a class="footer-social-btn" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.977 1.977 0 0 1-1.972-1.98 1.978 1.978 0 1 1 1.972 1.98zm1.979 13.019H3.356V9h3.96v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://x.com" target="_blank" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
