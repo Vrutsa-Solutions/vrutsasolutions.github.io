@@ -90,16 +90,19 @@ function FocusAreas() {
       img: `${process.env.PUBLIC_URL}/assets/Education_abroad_guidance.jpg`,
       title: "Education & abroad guidance",
       desc: "Clear support for choosing the right courses, universities, and study destinations abroad.",
+      link: "/education-abroad.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Investment_opportunities.png`,
       title: "Investment opportunities",
       desc: "Identify smart investment options to grow and secure your financial future.",
+      link: "/investment-opportunities.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Tech_guidance.png`,
       title: "Tech guidance (tools & automation)",
       desc: "Helping you choose the right tools and automate processes for better efficiency.",
+      link: "/tech-guidance.html",
     },
   ];
 
@@ -108,32 +111,37 @@ function FocusAreas() {
       img: `${process.env.PUBLIC_URL}/assets/Business_growth_challenges.png`,
       title: "Business growth challenges",
       desc: "Practical solutions to overcome obstacles and sustain long-term business growth.",
+      link: "/business-solutions.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Operational_issues.avif`,
       title: "Operational issues",
       desc: "Identifying and resolving process gaps to improve efficiency and daily operations.",
+      link: "/digital-transformation.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Technology_digital_gaps.avif`,
       title: "Technology & digital gaps",
       desc: "Bridging skill and system gaps to improve digital adoption and performance.",
+      link: "/technology-saas.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Funding_investor_readiness.png`,
       title: "Funding & investor readiness",
       desc: "Preparing your business to attract funding and confidently engage with investors.",
+      link: "/funding-and-investors.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Market_entry_expansion.png`,
       title: "Market entry & expansion",
       desc: "Strategic support to launch into new markets and scale your business confidently.",
+      link: "/market-entry.html",
     },
     {
-      img: `${process.env.PUBLIC_URL}/assets/Process_automation_
-      improvement.png`,
+      img: `${process.env.PUBLIC_URL}/assets/Process_automation_improvement.png`,
       title: "Process automation & improvement",
       desc: "Streamlining workflows through automation to boost efficiency and reduce costs.",
+      link: "/asset-management.html",
     },
   ];
 
@@ -163,7 +171,12 @@ function FocusAreas() {
       {/* GRID */}
       <div className="focus-grid">
         {data.map((item, index) => (
-          <div className="focus-card" key={index}>
+          <div
+            className="focus-card"
+            key={index}
+            onClick={item.link ? () => (window.location.href = item.link) : undefined}
+            style={item.link ? { cursor: "pointer" } : {}}
+          >
             <img src={item.img} alt={item.title} />
 
             <div className="focus-content">
