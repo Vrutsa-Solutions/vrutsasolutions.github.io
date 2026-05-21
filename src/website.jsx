@@ -93,16 +93,19 @@ function FocusAreas() {
       img: `${process.env.PUBLIC_URL}/assets/Education_abroad_guidance.jpg`,
       title: "Education & abroad guidance",
       desc: "Clear support for choosing the right courses, universities, and study destinations abroad.",
+      link: "/education-abroad.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Investment_opportunities.png`,
       title: "Investment opportunities",
       desc: "Identify smart investment options to grow and secure your financial future.",
+      link: "/investment-opportunities.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Tech_guidance.png`,
       title: "Tech guidance (tools & automation)",
       desc: "Helping you choose the right tools and automate processes for better efficiency.",
+      link: "/tech-guidance.html",
     },
   ];
 
