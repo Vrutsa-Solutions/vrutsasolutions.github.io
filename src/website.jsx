@@ -75,16 +75,19 @@ function FocusAreas() {
       img: `${process.env.PUBLIC_URL}/assets/Career_guidance_growth.png`,
       title: "Career Guidance",
       desc: "Helping you build skills, confidence, and clear goals for a better future.",
+      link: "/career-guidance.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Business_Growth.jpg`,
       title: "Business Growth",
       desc: "Strategic guidance to scale operations, improve performance, and increase profitability.",
+      link: "/business-growth-ind.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Personal_brand_online_presence.png`,
       title: "Personal brand & online presence",
       desc: "Build a strong identity and grow your visibility across digital platforms.",
+      link: "/personal-brand.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Education_abroad_guidance.jpg`,
