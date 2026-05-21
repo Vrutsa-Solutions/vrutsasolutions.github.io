@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./website.css";
 import emailjs from "@emailjs/browser";
 
 
 export default function Website() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
+
   return (
     <>
       <Hero />
@@ -132,17 +142,19 @@ function FocusAreas() {
       img: `${process.env.PUBLIC_URL}/assets/Funding_investor_readiness.png`,
       title: "Funding & investor readiness",
       desc: "Preparing your business to attract funding and confidently engage with investors.",
+      link: "/funding-and-investors.html",
     },
     {
       img: `${process.env.PUBLIC_URL}/assets/Market_entry_expansion.png`,
       title: "Market entry & expansion",
       desc: "Strategic support to launch into new markets and scale your business confidently.",
+      link: "/market-entry.html",
     },
     {
-      img: `${process.env.PUBLIC_URL}/assets/Process_automation_
-      improvement.png`,
+      img: `${process.env.PUBLIC_URL}/assets/Process_automation_improvement.png`,
       title: "Process automation & improvement",
       desc: "Streamlining workflows through automation to boost efficiency and reduce costs.",
+      link: "/asset-management.html",
     },
   ];
 
@@ -414,7 +426,10 @@ function Footer() {
 
 /* ================= CONTACT ================= */
 function Contact() {
-  const [active, setActive] = useState("individual");
+  const [active, setActive] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("form") === "enterprise" ? "business" : "individual";
+  });
 
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
