@@ -43,8 +43,10 @@ function Hero() {
     >
       <header className="hero-header">
         <div className="logo-area">
-          <img src={`${process.env.PUBLIC_URL}/assets/logo.png`} alt="Vrutsa Solutions" />
-          <span>VRUTSA</span>
+          <img src={`${process.env.PUBLIC_URL}/assets/logo.png`} alt="Vrutsa Solutions Logo" />
+          <span className="nav-brand-text">
+            <span className="nv">Vrutsa</span><span className="ns">Solutions</span>
+          </span>
         </div>
 
         <nav className="nav-links">
@@ -63,7 +65,7 @@ function Hero() {
         <p className="tagline">SaaS - Solutions as a Service</p>
 
         <h1>
-          The Next Generation solutions for <br />
+          The Next Generation<br />solutions for<br />
           complex challenges
         </h1>
 
