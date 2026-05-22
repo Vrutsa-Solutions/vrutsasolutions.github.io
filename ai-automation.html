@@ -6,8 +6,15 @@
   <title>AI & Automation | Vrutsa Solutions</title>
   <meta name="description" content="Intelligent systems that streamline workflows and decisions. Vrutsa Solutions delivers AI strategy, intelligent automation, ML analytics, NLP solutions & AI-powered customer experience." />
   <meta name="theme-color" content="#0a3d6b" />
-  <link rel="icon" href="./favicon.ico" />
+  <link rel="icon" href="./logo.png" />
   <link rel="apple-touch-icon" href="./logo192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="./mail-chooser.js" defer></script>
+  <style>
+    h1, h2, h3, h4, h5, h6 { font-family: 'DM Serif Display', serif !important; font-weight: 400 !important; }
+  </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -46,7 +53,7 @@
 
     html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       color: var(--slate-700);
       line-height: 1.7;
       background: var(--white);
@@ -54,7 +61,7 @@
       -webkit-font-smoothing: antialiased;
     }
     h1,h2,h3,h4,h5 {
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       color: var(--royal-deep);
       line-height: 1.18;
       font-weight: 700;
@@ -132,7 +139,7 @@
       object-fit: contain;
     }
     .nav-logo-text {
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 800; font-size: 1.4rem;
       color: var(--royal-deep); letter-spacing: -.5px;
     }
@@ -247,7 +254,7 @@
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 15px 32px; border-radius: 10px;
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 600; font-size: .95rem;
       cursor: pointer; border: none;
       transition: all .35s var(--ease);
@@ -399,7 +406,7 @@
     .metric:hover { transform: translateY(-5px); box-shadow: var(--shadow-lift); }
     .metric:hover::before { opacity: 1; }
     .metric-val {
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 2.8rem; font-weight: 900;
       background: linear-gradient(135deg, var(--royal), var(--sky), var(--teal));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -433,7 +440,7 @@
     .offer-card:hover::after { transform: scaleX(1); }
     .offer-num {
       position: absolute; top: 16px; right: 22px;
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 4.8rem; font-weight: 900;
       line-height: 1; color: rgba(26,143,200,.08);
       transition: color .4s var(--ease);
@@ -497,7 +504,7 @@
       position: relative;
     }
     .step-badge span {
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 1.55rem; font-weight: 800;
       background: linear-gradient(135deg, var(--royal), var(--sky));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -584,7 +591,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--white); color: var(--royal);
       padding: 17px 40px; border-radius: 12px;
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 700; font-size: .96rem;
       box-shadow: 0 6px 24px rgba(0,0,0,.15);
       position: relative; z-index: 1;
@@ -610,7 +617,7 @@
       gap: 48px; margin-bottom: 56px;
     }
     .footer-brand .nav-logo-text {
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 800; font-size: 1.45rem;
       color: var(--white); letter-spacing: -.4px;
       display: block; margin-bottom: 16px;
@@ -701,7 +708,7 @@
         <a href="/#about">About</a>
         <a href="/#services" class="current">Services</a>
         <a href="/#contact">Contact</a>
-        <a href="/#contact" class="nav-btn">Get In Touch</a>
+        <a href="mailto:contact@vrutsasolutions.com?subject=Get%20In%20Touch%20-%20AI%20%26%20Automation&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20your%20AI%20%26%20Automation%20services.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="nav-btn">Get In Touch</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -711,7 +718,7 @@
     <a href="/#about" onclick="closeMobile()">About</a>
     <a href="/#services" onclick="closeMobile()">Services</a>
     <a href="/#contact" onclick="closeMobile()">Contact</a>
-    <a href="/#contact" class="btn btn-fill" onclick="closeMobile()">Get In Touch</a>
+    <a href="mailto:contact@vrutsasolutions.com?subject=Get%20In%20Touch%20-%20AI%20%26%20Automation&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20your%20AI%20%26%20Automation%20services.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="btn btn-fill" onclick="closeMobile()">Get In Touch</a>
   </div>
  
   <!-- HERO -->
@@ -858,7 +865,7 @@
       <div class="cta-wrap">
         <h2>Ready to Put AI to Work?</h2>
         <p>Let's identify the highest-impact automation opportunities in your business and build a roadmap together.</p>
-        <a href="/?form=enterprise#get-in-touch" class="btn-white">Contact Us &rarr;</a>
+        <a href="mailto:contact@vrutsasolutions.com?subject=Contact%20Us%20-%20AI%20%26%20Automation&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20your%20AI%20%26%20Automation%20services.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="btn-white">Contact Us &rarr;</a>
       </div>
     </div>
   </section>
@@ -874,7 +881,7 @@
         <h5>Services</h5>
         <ul>
           <li><a href="/business-solutions.html">Business Solutions</a></li>
-          <li><a href="/#services">Technology &amp; SaaS</a></li>
+          <li><a href="/technology-saas.html">Technology &amp; SaaS</a></li>
           <li><a href="/ai-automation.html">AI &amp; Automation</a></li>
           <li><a href="/digital-transformation.html">Digital Transformation</a></li>
         </ul>
