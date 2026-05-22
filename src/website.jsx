@@ -383,7 +383,7 @@ function Footer() {
         <div className="footer-container">
           {/* LEFT */}
           <div className="footer-left">
-            <h2>VRUTSA SOLUTIONS</h2>
+            <h2 className="brand-heading">Vrutsa<span>Solutions</span></h2>
             <p>
               We Solve Real Business & Individual Problems <br />
               with Scalable Solutions
