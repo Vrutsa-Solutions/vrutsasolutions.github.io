@@ -74,16 +74,32 @@ h4 { font-size: 1.2rem; }
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo-area img {
-    width: 38px;
-    height: 38px;
+    height: 42px;
+    width: auto;
+    object-fit: contain;
 }
 
-.logo-area span {
-    font-size: 20px;
-    font-weight: 700;
+/* Branded "VrutsaSolutions" wordmark — matches service-page header */
+.logo-area .nav-brand-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.logo-area .nav-brand-text .nv {
+    color: #0C396F;
+}
+
+.logo-area .nav-brand-text .ns {
+    color: #1A6FC4;
 }
 
 /* NAV */
