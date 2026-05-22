@@ -1,11 +1,34 @@
+/* ================= BRAND TOKENS ================= */
+:root {
+    --logo-blue: #0C396F;
+    --logo-blue-light: #0f74ae;
+    --logo-blue-hover: #1c78c0;
+    --logo-green: #3E9B38;
+}
+
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 body {
     margin: 0;
+    font-family: 'Manrope', sans-serif;
+    color: #1a1a1a;
 }
+
+/* Heading hierarchy — branded serif display */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color: var(--logo-blue);
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
 
 /* ================= HERO ================= */
 /* ===== HERO SECTION ===== */
@@ -76,7 +99,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #054070;
+    color: #0C396F;
     font-size: 14px;
     font-weight: 500;
 
@@ -137,6 +160,7 @@ body {
     font-size: 42px;
     line-height: 1.3;
     margin-bottom: 25px;
+    color: #ffffff;
 }
 
 /* DESCRIPTION */
@@ -536,7 +560,7 @@ body {
 .why-card h4 {
     font-size: 25px;
     margin-bottom: 10px;
-    color: #054070;
+    color: #0C396F;
 }
 
 .why-card.reverse {
@@ -599,7 +623,7 @@ body {
     background: transparent;
     cursor: pointer;
     font-weight: 600;
-    color: #054070;
+    color: #0C396F;
     text-align: center;
 }
 
@@ -615,7 +639,7 @@ body {
     left: 0;
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, #054070, #0f74ae);
+    background: linear-gradient(90deg, #0C396F, #0f74ae);
     border-radius: 40px;
     transition: transform 0.35s ease-in-out;
 }
@@ -680,20 +704,20 @@ textarea {
     border-radius: 25px;
     border: none;
     cursor: pointer;
-    background: linear-gradient(90deg, #054070, #0f74ae);
+    background: linear-gradient(90deg, #0C396F, #0f74ae);
     color: white;
     font-weight: 600;
 }
 
 .buttons .outline {
     background: transparent;
-    color: #054070;
-    border: 2px solid #054070;
+    color: #0C396F;
+    border: 2px solid #0C396F;
 }
 
 /* ================= FOOTER ================= */
 .footer {
-    background: linear-gradient(90deg, #054070, #0f74ae);
+    background: linear-gradient(90deg, #0C396F, #0f74ae);
     color: #ffffff;
     padding: 40px 20px 20px;
 }
@@ -713,6 +737,28 @@ textarea {
 .footer-left h2 {
     margin-bottom: 10px;
     font-size: 22px;
+    color: #ffffff;
+}
+
+/* Branded "VrutsaSolutions" wordmark in footer */
+.footer-left .brand-heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.footer-left .brand-heading span {
+    color: #2db5f0;
+    margin-left: 2px;
+}
+
+/* Footer contact-block headings also sit on the blue gradient */
+.footer-right h4,
+.contact-block h4 {
+    color: #ffffff;
 }
 
 .footer-left p {
@@ -908,14 +954,90 @@ img {
     }
 
     /* ---------- FOOTER ---------- */
+    .footer {
+        padding: 32px 16px 16px;
+        overflow-x: hidden;
+    }
+
     .footer-container {
         flex-direction: column;
         text-align: center;
-        gap: 24px;
+        gap: 28px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-left,
+    .footer-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-left h2 {
+        font-size: 20px;
+        word-wrap: break-word;
+    }
+
+    .footer-left p {
+        margin-bottom: 16px;
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social span {
+        margin-bottom: 10px;
+    }
+
+    .icons {
+        justify-content: center;
+    }
+
+    .contact-block {
+        margin-bottom: 14px;
+    }
+
+    .contact-block:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-block p {
+        word-break: break-word;
     }
 
     .footer-bottom {
+        display: flex;
         flex-direction: column;
-        gap: 8px;
+        align-items: center;
+        gap: 6px;
+        margin-top: 24px;
+        padding: 12px 8px 0;
+    }
+
+    .footer-bottom span {
+        display: none;
+    }
+}
+
+/* ---------- FOOTER FINE-TUNING FOR SMALL PHONES ---------- */
+@media (max-width: 480px) {
+    .footer {
+        padding: 28px 14px 14px;
+    }
+
+    .footer-left h2 {
+        font-size: 18px;
+    }
+
+    .footer-left p,
+    .contact-block p {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
     }
 }
