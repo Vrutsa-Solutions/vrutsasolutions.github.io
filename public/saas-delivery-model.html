@@ -394,62 +394,98 @@ body { font-family: "Poppins", "Segoe UI", sans-serif; background: #fff; color: 
 .btn-cta:hover { background: var(--light-bg); transform: translateY(-1px); }
 
 /* ─── FOOTER ─── */
-footer {
-  background: var(--footer-bg);
-  padding: 56px 40px 0;
+.site-footer {
+  background: #0A2B53;
+  color: #fff;
+  padding: 64px 56px 0;
 }
 .footer-inner {
-  max-width: 1140px; margin: 0 auto;
   display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
   gap: 48px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.ft-brand-name {
-  display: flex; align-items: center;
-  gap: 8px; margin-bottom: 14px;
+.footer-logo {
+  display: flex; align-items: center; gap: 9px;
+  margin-bottom: 22px; text-decoration: none;
 }
-.ft-logo-img {
-  height: 34px; width: 34px;
-  border-radius: 50%; object-fit: cover;
-  background: #000; border: 1.5px solid rgba(255,255,255,0.15);
+.footer-brand-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem; font-weight: 800;
+  letter-spacing: -0.01em; line-height: 1;
 }
-.ft-brand-text {
-  font-size: 1.05rem; font-weight: 800;
-  letter-spacing: -0.01em;
+.footer-brand-text .fv { color: #FFFFFF; }
+.footer-brand-text .fs { color: #1696D2; }
+.footer-tagline {
+  font-size: .865rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+  max-width: 290px;
 }
-.ft-brand-text .fnv { color: #fff; }
-.ft-brand-text .fns { color: var(--blue); }
-.footer-brand p {
-  font-size: .82rem; color: rgba(255,255,255,0.55);
-  line-height: 1.72; max-width: 230px;
+.footer-col-title {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 20px;
 }
-.footer-col h4 {
-  font-size: .72rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .1em;
-  color: rgba(255,255,255,0.4); margin-bottom: 18px;
+.footer-col ul {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 11px;
 }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul a {
-  font-size: .84rem; color: rgba(255,255,255,0.6);
-  text-decoration: none; transition: color .18s;
+.footer-col ul li a {
+  font-size: .875rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.62);
+  text-decoration: none;
+  transition: color .18s;
 }
-.footer-col ul a:hover { color: #fff; }
+.footer-col ul li a:hover { color: #fff; }
+.footer-contact-link {
+  font-size: .875rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.62);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 11px;
+  transition: color .18s;
+}
+.footer-contact-link:hover { color: #4DB8FF; }
 .footer-bottom {
-  max-width: 1140px; margin: 0 auto;
-  display: flex; align-items: center;
-  justify-content: space-between; flex-wrap: wrap;
-  gap: 12px; padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  gap: 16px;
 }
-.footer-bottom p { font-size: .76rem; color: rgba(255,255,255,0.35); }
-.footer-bottom-links { display: flex; gap: 20px; }
-.footer-bottom-links a {
-  font-size: .76rem; color: rgba(255,255,255,0.35);
-  text-decoration: none; transition: color .18s;
+.footer-copy {
+  font-size: .8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.38);
 }
-.footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
-
+.footer-socials {
+  display: flex; align-items: center; gap: 10px;
+}
+.footer-social-btn {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.13);
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.footer-social-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+.footer-social-btn svg {
+  width: 16px; height: 16px; fill: currentColor;
+}
 /* ─── RESPONSIVE ─── */
 @media(max-width:960px){
   .trust-row { grid-template-columns: 1fr 1fr; }
@@ -457,7 +493,9 @@ footer {
   .trust-cell:nth-child(2n) { border-right: none; }
   .conf-block { grid-template-columns: 1fr; gap: 36px; }
   .protection-grid { grid-template-columns: 1fr 1fr; }
+  .site-footer { padding: 48px 24px 0; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
   .cta-section { flex-direction: column; padding: 40px 28px; }
 }
 @media(max-width:640px){
@@ -470,12 +508,12 @@ footer {
   .trust-row { grid-template-columns: 1fr; }
   .trust-cell { border-right: none; }
   .protection-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 36px; }
-  footer { padding: 40px 24px 0; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .site-footer { padding: 40px 24px 0; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 16px 0; }
   .footer-brand, .footer-col { text-align: center; }
-  .footer-brand p { max-width: 260px; margin: 0 auto; text-wrap: balance; }
-  .ft-brand-name { justify-content: center; }
+  .footer-tagline { max-width: 260px; margin: 0 auto; text-wrap: balance; }
+  .footer-logo { justify-content: center; }
   .footer-col ul { align-items: center; }
   .outcome-stmt { flex-direction: column; gap: 8px; }
   .os-divider { display: none; }
@@ -751,47 +789,50 @@ footer {
 
 </div>
 
-<!-- ═══ FOOTER ═══ -->
-<footer>
+<!-- ENTERPRISE FOOTER -->
+<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="ft-brand-name">
-        <span class="ft-brand-text"><span class="fnv">Vrutsa</span><span class="fns">Solutions</span></span>
-      </div>
-      <p>We help businesses achieve measurable outcomes through customised technology and scalable SaaS-based solutions — across industries, with confidentiality and precision.</p>
+      <a class="footer-logo" href="./">
+        <span class="footer-brand-text">
+          <span class="fv">Vrutsa</span><span class="fs">Solutions</span>
+        </span>
+      </a>
+      <p class="footer-tagline">We help businesses achieve measurable outcomes through customised technology and scalable SaaS-based solutions — across industries, with confidentiality and precision.</p>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <div class="footer-col-title">Services</div>
       <ul>
-        <li><a href="outcome-driven-approach.html">Outcome-Driven Approach</a></li>
-        <li><a href="saas-delivery-model.html">SaaS-Based Delivery</a></li>
-        <li><a href="industry-agnostic-expertise.html">Industry-Agnostic Expertise</a></li>
-        <li><a href="confidential-structured-process.html">Confidential &amp; Structured Process</a></li>
+        <li><a href="./outcome-driven-approach.html">Outcome-Driven Approach</a></li>
+        <li><a href="./saas-delivery-model.html">SaaS-Based Delivery</a></li>
+        <li><a href="./industry-agnostic-expertise.html">Industry-Agnostic Expertise</a></li>
+        <li><a href="./confidential-structured-process.html">Confidential &amp; Structured Process</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
+      <div class="footer-col-title">Company</div>
       <ul>
-        <li><a href="./index.html#about">About Us</a></li>
-        <li><a href="./index.html#services">Services</a></li>
+        <li><a href="./#about">About Us</a></li>
+        <li><a href="./#services">Services</a></li>
         <li><a href="#">Careers</a></li>
         <li><a href="mailto:contact@vrutsasolutions.com">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a></li>
-        <li><a href="https://www.vrutsasolutions.com">www.vrutsasolutions.com</a></li>
-      </ul>
+      <div class="footer-col-title">Contact</div>
+      <a class="footer-contact-link" href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a>
+      <a class="footer-contact-link" href="https://www.vrutsasolutions.com" target="_blank">www.vrutsasolutions.com</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Vrutsa Solutions Pvt. Ltd. All rights reserved.</p>
-    <div class="footer-bottom-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Sitemap</a>
+    <span class="footer-copy">&copy; 2026 Vrutsa Solutions Pvt. Ltd. All rights reserved.</span>
+    <div class="footer-socials">
+      <a class="footer-social-btn" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.977 1.977 0 0 1-1.972-1.98 1.978 1.978 0 1 1 1.972 1.98zm1.979 13.019H3.356V9h3.96v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://x.com" target="_blank" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
     </div>
   </div>
 </footer>
