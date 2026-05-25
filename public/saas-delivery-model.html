@@ -1,0 +1,800 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./logo.png" />
+<title>SaaS-Based Delivery Model — Vrutsa Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./mail-chooser.js" defer></script>
+<style>
+
+/* ─── VARIABLES ─── */
+:root {
+  --navy:        #0C396F;
+  --blue:        #1696D2;
+  --blue-mid:    #1D7FBE;
+  --light-bg:    #EEF7FC;
+  --white:       #FFFFFF;
+  --footer-bg:   #0A2B53;
+  --text-dark:   #0C396F;
+  --text-body:   #334155;
+  --text-muted:  #64748B;
+  --border:      #D9E6F2;
+  --border-acc:  #1696D2;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Poppins", "Segoe UI", sans-serif; background: #fff; color: var(--text-body); min-height: 100vh; }
+
+/* ─── NAVBAR ─── */
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 200;
+  box-shadow: 0 1px 8px rgba(12,57,111,0.06);
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 68px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 9px;
+  text-decoration: none;
+}
+.nav-logo-img {
+  height: 40px; width: 40px;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+}
+.nav-brand-text {
+  font-size: 1.15rem; font-weight: 800;
+  letter-spacing: -0.01em; white-space: nowrap;
+  line-height: 1;
+}
+.nav-brand-text .nv { color: #0C396F; }
+.nav-brand-text .ns { color: #1696D2; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 6px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .84rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  padding: 7px 13px; border-radius: 6px;
+  transition: color .18s, background .18s;
+}
+.nav-links a:hover { color: var(--navy); background: var(--light-bg); }
+.nav-links a.active {
+  color: var(--navy); font-weight: 700;
+  border-bottom: 2.5px solid var(--blue);
+  border-radius: 0; padding-bottom: 5px;
+}
+.nav-cta-btn {
+  background: var(--navy); color: var(--white) !important;
+  padding: 8px 20px !important; border-radius: 7px !important;
+  font-weight: 700 !important; font-size: .84rem !important;
+  transition: background .18s !important;
+  border-bottom: none !important;
+}
+.nav-cta-btn:hover { background: var(--blue-mid) !important; }
+
+.nav-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 4px;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, #0C396F 0%, #1D7FBE 55%, #1696D2 100%);
+  padding: 72px 40px 68px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 70% at 90% 20%, rgba(255,255,255,0.08) 0%, transparent 55%),
+              radial-gradient(ellipse 35% 50% at 5% 85%, rgba(12,57,111,0.25) 0%, transparent 55%);
+}
+.hero-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+.breadcrumb {
+  font-size: .72rem; font-weight: 500;
+  color: rgba(255,255,255,0.6); margin-bottom: 18px;
+  letter-spacing: .02em;
+}
+.breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.breadcrumb a:hover { color: rgba(255,255,255,0.9); }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.92);
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 100px;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800; color: #fff;
+  line-height: 1.15; margin-bottom: 16px;
+  letter-spacing: -.02em;
+}
+.hero h1 em { font-style: normal; color: rgba(255,255,255,0.72); }
+.hero-sub {
+  font-size: .975rem; font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.75;
+  max-width: 580px; margin: 0 auto;
+}
+
+/* ─── MAIN WRAPPER ─── */
+.main-wrap { max-width: 1140px; margin: 0 auto; padding: 72px 40px 100px; }
+
+/* ─── SECTION LABEL / HEAD ─── */
+.sec-label {
+  display: inline-block;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--blue); background: var(--light-bg);
+  border-radius: 100px; padding: 4px 14px;
+  margin-bottom: 10px;
+}
+.sec-head { margin-bottom: 40px; }
+.sec-head h2 {
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  font-weight: 700; color: var(--navy);
+  line-height: 1.2; margin-bottom: 10px;
+}
+.sec-head p {
+  font-size: .9rem; color: var(--text-body);
+  line-height: 1.72; max-width: 660px;
+}
+
+/* thin accent line between sections */
+.section-rule {
+  height: 1px;
+  background: var(--border);
+  margin: 64px 0;
+}
+
+/* ─── TRUST PILLARS (4-col, no card boxes) ─── */
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 64px;
+}
+.trust-cell {
+  padding: 28px 22px;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+  transition: background .18s;
+}
+.trust-cell:last-child { border-right: none; }
+.trust-cell:hover { background: var(--light-bg); }
+.tc-icon {
+  width: 40px; height: 40px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.trust-cell h3 {
+  font-size: .88rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 6px;
+  line-height: 1.3;
+}
+.trust-cell p {
+  font-size: .8rem; color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── CONF BLOCK (list + checklist) ─── */
+.conf-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+  align-items: start;
+}
+.conf-list { display: flex; flex-direction: column; gap: 20px; }
+.conf-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.conf-item:first-child { padding-top: 0; }
+.conf-item:last-child { border-bottom: none; }
+.ci-badge {
+  font-size: .62rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--blue); margin-bottom: 5px;
+  display: block;
+}
+.conf-item h4 {
+  font-size: .9rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 5px;
+}
+.conf-item p {
+  font-size: .83rem; color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* SECURITY CHECKLIST PANEL */
+.security-panel {
+  background: var(--light-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 28px;
+}
+.sp-title {
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 20px;
+}
+.sp-check {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sp-check:last-of-type { border-bottom: none; }
+.sp-check-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .65rem; font-weight: 700; color: #fff;
+}
+.sp-check-text {
+  font-size: .83rem; font-weight: 500;
+  color: var(--text-dark);
+}
+.sp-comp-label {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-muted); margin: 20px 0 10px;
+}
+.sp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.sp-tag {
+  font-size: .7rem; font-weight: 600;
+  padding: 4px 12px; border-radius: 100px;
+  background: #fff; color: var(--blue-mid);
+  border: 1px solid var(--border);
+}
+
+/* ─── TIMELINE ─── */
+.timeline-wrap { margin-bottom: 64px; }
+.timeline { display: flex; flex-direction: column; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 19px; top: 0; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.tl-item {
+  display: flex; gap: 28px;
+  padding-bottom: 36px; position: relative;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-num {
+  flex-shrink: 0; z-index: 1;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--white); border: 1.5px solid var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .82rem; font-weight: 700; color: var(--blue);
+  margin-top: 1px;
+}
+.tl-body { flex: 1; padding-top: 6px; }
+.tl-body h4 {
+  font-size: .92rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 5px;
+}
+.tl-body p {
+  font-size: .83rem; color: var(--text-body);
+  line-height: 1.65; margin-bottom: 8px;
+}
+.tl-tag {
+  font-size: .68rem; font-weight: 600;
+  color: var(--blue); background: var(--light-bg);
+  border-radius: 100px; padding: 3px 11px;
+  display: inline-block; letter-spacing: .03em;
+}
+
+/* ─── PROTECTION GRID ─── */
+.protection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 64px;
+}
+.prot-cell {
+  padding: 24px 0;
+  border-bottom: 2px solid var(--border);
+}
+.prot-badge {
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 7px; display: block;
+}
+.prot-cell h4 {
+  font-size: .9rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 6px;
+}
+.prot-cell p {
+  font-size: .82rem; color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* ─── OUTCOME STATEMENT ─── */
+.outcome-stmt {
+  background: var(--light-bg);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 10px 10px 0;
+  padding: 28px 32px;
+  margin-bottom: 64px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.os-label {
+  flex-shrink: 0;
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--blue); margin-top: 4px;
+  white-space: nowrap;
+}
+.os-divider { flex-shrink: 0; width: 1px; background: var(--border); align-self: stretch; margin: 0 4px; }
+.os-text {
+  font-size: 1rem; font-weight: 500;
+  color: var(--navy); line-height: 1.65;
+  font-style: italic;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  background: linear-gradient(135deg, #0C396F, #1D7FBE);
+  border-radius: 14px;
+  padding: 52px 54px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta-section::after {
+  content: '';
+  position: absolute; top: -40%; right: -4%;
+  width: 260px; height: 260px; border-radius: 50%;
+  background: rgba(255,255,255,0.04); pointer-events: none;
+}
+.cta-section h2 {
+  font-size: 1.6rem; font-weight: 700;
+  color: #fff; margin-bottom: 8px; line-height: 1.2;
+}
+.cta-section p {
+  font-size: .9rem; color: rgba(255,255,255,0.75);
+  max-width: 420px; line-height: 1.68;
+}
+.btn-cta {
+  flex-shrink: 0;
+  background: #fff; color: var(--navy);
+  padding: 12px 28px; border-radius: 8px;
+  font-size: .86rem; font-weight: 700;
+  text-decoration: none; white-space: nowrap;
+  transition: background .18s, transform .18s;
+  display: inline-block;
+}
+.btn-cta:hover { background: var(--light-bg); transform: translateY(-1px); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--footer-bg);
+  padding: 56px 40px 0;
+}
+.footer-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ft-brand-name {
+  display: flex; align-items: center;
+  gap: 8px; margin-bottom: 14px;
+}
+.ft-logo-img {
+  height: 34px; width: 34px;
+  border-radius: 50%; object-fit: cover;
+  background: #000; border: 1.5px solid rgba(255,255,255,0.15);
+}
+.ft-brand-text {
+  font-size: 1.05rem; font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.ft-brand-text .fnv { color: #fff; }
+.ft-brand-text .fns { color: var(--blue); }
+.footer-brand p {
+  font-size: .82rem; color: rgba(255,255,255,0.55);
+  line-height: 1.72; max-width: 230px;
+}
+.footer-col h4 {
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: rgba(255,255,255,0.4); margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a {
+  font-size: .84rem; color: rgba(255,255,255,0.6);
+  text-decoration: none; transition: color .18s;
+}
+.footer-col ul a:hover { color: #fff; }
+.footer-bottom {
+  max-width: 1140px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap;
+  gap: 12px; padding: 20px 0;
+}
+.footer-bottom p { font-size: .76rem; color: rgba(255,255,255,0.35); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a {
+  font-size: .76rem; color: rgba(255,255,255,0.35);
+  text-decoration: none; transition: color .18s;
+}
+.footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .trust-row { grid-template-columns: 1fr 1fr; }
+  .trust-cell { border-bottom: 1px solid var(--border); }
+  .trust-cell:nth-child(2n) { border-right: none; }
+  .conf-block { grid-template-columns: 1fr; gap: 36px; }
+  .protection-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .cta-section { flex-direction: column; padding: 40px 28px; }
+}
+@media(max-width:640px){
+  .nav-inner { padding: 0 20px; }
+  .nav-links { display: none; flex-direction: column; background: #fff; position: absolute; top: 68px; left: 0; right: 0; padding: 16px 20px 20px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,.06); gap: 2px; }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+  .hero { padding: 52px 24px 48px; }
+  .main-wrap { padding: 48px 24px 72px; }
+  .trust-row { grid-template-columns: 1fr; }
+  .trust-cell { border-right: none; }
+  .protection-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 36px; }
+  footer { padding: 40px 24px 0; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 16px 0; }
+  .footer-brand, .footer-col { text-align: center; }
+  .footer-brand p { max-width: 260px; margin: 0 auto; text-wrap: balance; }
+  .ft-brand-name { justify-content: center; }
+  .footer-col ul { align-items: center; }
+  .outcome-stmt { flex-direction: column; gap: 8px; }
+  .os-divider { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-brand" href="./">
+      <img class="nav-logo-img" src="./logo.png" alt="Vrutsa Solutions Logo">
+      <span class="nav-brand-text"><span class="nv">Vrutsa</span><span class="ns">Solutions</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./">Home</a></li>
+      <li><a href="./index.html#about">About</a></li>
+      <li><a href="./index.html#services">Services</a></li>
+      <li><a href="./index.html#about" class="active">Why Vrutsa?</a></li>
+      <li><a href="mailto:contact@vrutsasolutions.com?subject=Talk%20to%20Experts%20-%20Vrutsa%20Solutions&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20speak%20with%20an%20expert%20about%20your%20services.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="nav-cta-btn">Talk to Experts</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="./">Home</a> &rsaquo;
+      <a href="#">Why Vrutsa</a> &rsaquo;
+      SaaS-Based Delivery Model
+    </div>
+    <div class="hero-badge">☁️ Delivery Model</div>
+    <h1>SaaS-Based <em>Delivery Model</em></h1>
+    <p class="hero-sub">We build and deliver everything on cloud-native, SaaS-first architecture — giving your business lower costs, faster deployment, elastic scale, and zero infrastructure burden from day one.</p>
+  </div>
+</section>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main-wrap">
+
+  <!-- CORE PILLARS -->
+  <div class="sec-head">
+    <span class="sec-label">Why SaaS Delivery</span>
+    <h2>What SaaS-native delivery changes for your business</h2>
+    <p>Traditional software projects are slow, expensive, and fragile. SaaS-native delivery fundamentally transforms the economics, speed, and reliability of your business technology.</p>
+  </div>
+
+  <div class="trust-row">
+    <div class="trust-cell">
+      <div class="tc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M7 17a5 5 0 1 1 2.5-9.3A6 6 0 1 1 22 13H7" stroke="#1696D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Cloud-Native Architecture</h3>
+      <p>Every solution is designed cloud-first — leveraging managed services, auto-scaling, and serverless patterns that eliminate expensive on-premise hardware.</p>
+    </div>
+    <div class="trust-cell">
+      <div class="tc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="10" width="20" height="14" rx="3" stroke="#1696D2" stroke-width="1.8"/>
+          <path d="M9 10V8a5 5 0 0 1 10 0v2" stroke="#0C396F" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M10 17h8M12 20h4" stroke="#1696D2" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Predictable OPEX Model</h3>
+      <p>Replace large upfront capital expenditure with predictable operational costs that scale linearly with your business — pay for what you use.</p>
+    </div>
+    <div class="trust-cell">
+      <div class="tc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M5 14h4l3-8 4 16 3-8h4" stroke="#1696D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>10× Faster Deployment</h3>
+      <p>CI/CD pipelines, containerised workloads, and pre-built integrations reduce time-to-production from months to weeks — and weeks to days.</p>
+    </div>
+    <div class="trust-cell">
+      <div class="tc-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="10" stroke="#1696D2" stroke-width="1.8"/>
+          <path d="M10 14l3 3 5-6" stroke="#0C396F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>99.9% Uptime SLA</h3>
+      <p>Managed SaaS platforms with built-in redundancy, automatic failover, and 24/7 monitoring — reliability that on-premise systems simply cannot match.</p>
+    </div>
+  </div>
+
+  <div class="section-rule"></div>
+
+  <!-- HOW WE IMPLEMENT -->
+  <div class="sec-head">
+    <span class="sec-label">Implementation</span>
+    <h2>How we build and deliver SaaS solutions</h2>
+    <p>A structured, phase-by-phase SaaS adoption journey — from architecture design through to live production, with full change management and zero disruption to your current operations.</p>
+  </div>
+
+  <div class="conf-block">
+    <div class="conf-list">
+      <div class="conf-item">
+        <span class="ci-badge">Architecture</span>
+        <h4>Cloud-Native Solution Design</h4>
+        <p>We architect every solution with cloud-first principles — selecting the right mix of managed services, microservices, and SaaS platforms based on your workload, scale requirements, and budget model.</p>
+      </div>
+      <div class="conf-item">
+        <span class="ci-badge">Migration</span>
+        <h4>Zero-Disruption Migration Planning</h4>
+        <p>We design phased migration strategies — lift-and-shift, re-platform, or rebuild — with parallel-run testing and controlled cutovers that maintain full business continuity throughout the transition.</p>
+      </div>
+      <div class="conf-item">
+        <span class="ci-badge">Integration</span>
+        <h4>Seamless System Integration</h4>
+        <p>SaaS platforms only deliver value when they communicate. We design and build the integration layer — APIs, webhooks, iPaaS connectors, and custom middleware — making your entire software stack act as one unified system.</p>
+      </div>
+      <div class="conf-item">
+        <span class="ci-badge">Security</span>
+        <h4>Security &amp; Compliance by Design</h4>
+        <p>Cloud doesn't mean insecure. We embed security from architecture onwards — RBAC, encryption at rest and in transit, audit logging, and compliance frameworks (ISO 27001, SOC 2, GDPR) built in from the start.</p>
+      </div>
+      <div class="conf-item">
+        <span class="ci-badge">FinOps</span>
+        <h4>Cloud Cost Governance</h4>
+        <p>Cloud bills spiral without governance. We implement FinOps practices — resource tagging, budget alerts, rightsizing, and reserved instance strategies — keeping your spend predictable and tied to actual business activity.</p>
+      </div>
+    </div>
+
+    <div class="security-panel">
+      <div class="sp-title">SaaS Delivery Checklist</div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">Cloud-native architecture design</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">CI/CD pipeline setup</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">Auto-scaling &amp; load balancing</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">Security &amp; compliance framework</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">Third-party integration layer</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">FinOps cost governance</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">Monitoring &amp; alerting stack</div></div>
+      <div class="sp-check"><div class="sp-check-icon">✓</div><div class="sp-check-text">Disaster recovery &amp; backups</div></div>
+      <div class="sp-comp-label">Platform &amp; Cloud Support</div>
+      <div class="sp-tags">
+        <span class="sp-tag">AWS</span>
+        <span class="sp-tag">Azure</span>
+        <span class="sp-tag">GCP</span>
+        <span class="sp-tag">Docker</span>
+        <span class="sp-tag">Kubernetes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-rule"></div>
+
+  <!-- DELIVERY PHASES -->
+  <div class="sec-head">
+    <span class="sec-label">Delivery Phases</span>
+    <h2>Our SaaS delivery process — phase by phase</h2>
+    <p>A disciplined, five-phase engagement that moves from readiness assessment through to optimised live production — delivering measurable value at every stage.</p>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-num">1</div>
+        <div class="tl-body">
+          <h4>SaaS Readiness Assessment</h4>
+          <p>We audit your current technology estate — infrastructure, data architecture, team capability, and vendor landscape — to identify the fastest and lowest-risk path to SaaS adoption, with a FinOps model showing projected cost delta vs. current state.</p>
+          <span class="tl-tag">Output: Readiness Report + Cost Model</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">2</div>
+        <div class="tl-body">
+          <h4>Architecture Design &amp; Vendor Selection</h4>
+          <p>Our architects design your target-state cloud infrastructure and select best-fit SaaS platforms — CRM, ERP, analytics, communication, or custom-built cloud-native apps — with a full vendor comparison and vendor-agnostic recommendation.</p>
+          <span class="tl-tag">Output: Architecture Blueprint + Vendor Recommendation</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">3</div>
+        <div class="tl-body">
+          <h4>Migration &amp; Integration Planning</h4>
+          <p>We plan the data migration strategy, integration architecture with existing systems, and a phased cutover plan that maintains business continuity throughout. Every dependency is mapped and sequenced before a single byte moves.</p>
+          <span class="tl-tag">Output: Migration Plan + Integration Design</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">4</div>
+        <div class="tl-body">
+          <h4>Build, Test &amp; Parallel Run</h4>
+          <p>Full CI/CD pipeline setup, parallel-run testing in staging, user acceptance testing with real data, and comprehensive security validation. We don't go live until your team is confident and the system performs to spec under realistic load.</p>
+          <span class="tl-tag">Output: Tested System + UAT Sign-Off</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">5</div>
+        <div class="tl-body">
+          <h4>Go-Live, Training &amp; Hypercare</h4>
+          <p>Controlled production cutover with a dedicated hypercare period — intensive monitoring, rapid response to issues, and on-hand support for your team during the critical first weeks in production. No handover until you're stable.</p>
+          <span class="tl-tag">Output: Live System + Training Completion</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">6</div>
+        <div class="tl-body">
+          <h4>Optimise, Scale &amp; Continuously Improve</h4>
+          <p>Post-launch, Vrutsa manages continuous improvement cycles — performance monitoring, SaaS vendor updates, FinOps reviews, and feature expansion on a regular cadence — ensuring your platform compounds in value over time, not depreciates.</p>
+          <span class="tl-tag">Output: Monthly FinOps Report + Optimisation Backlog</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-rule"></div>
+
+  <!-- WHAT WE DELIVER -->
+  <div class="sec-head">
+    <span class="sec-label">What You Get</span>
+    <h2>What Vrutsa delivers in every SaaS engagement</h2>
+  </div>
+
+  <div class="protection-grid">
+    <div class="prot-cell">
+      <span class="prot-badge">Infrastructure</span>
+      <h4>Fully Managed Cloud Setup</h4>
+      <p>Complete cloud environment provisioning, configuration, security hardening, and documentation — production-ready infrastructure handed over with full access and knowledge transfer.</p>
+    </div>
+    <div class="prot-cell">
+      <span class="prot-badge">Automation</span>
+      <h4>CI/CD Pipeline &amp; DevOps</h4>
+      <p>Automated build, test, and deployment pipelines that eliminate manual release processes, reduce deployment risk, and let your team ship changes with confidence and speed.</p>
+    </div>
+    <div class="prot-cell">
+      <span class="prot-badge">Integrations</span>
+      <h4>Connected Software Ecosystem</h4>
+      <p>All your SaaS platforms — CRM, ERP, analytics, communication, HR — integrated into a single data flow. One source of truth, no manual data entry, no siloed reporting.</p>
+    </div>
+    <div class="prot-cell">
+      <span class="prot-badge">Observability</span>
+      <h4>Monitoring &amp; Alerting Stack</h4>
+      <p>Real-time dashboards, error tracking, performance monitoring, and automated alerting — full visibility into your system's health before issues become incidents.</p>
+    </div>
+    <div class="prot-cell">
+      <span class="prot-badge">Resilience</span>
+      <h4>Backup &amp; Disaster Recovery</h4>
+      <p>Automated backups, tested recovery procedures, and documented RTO/RPO commitments — your business data is always protected and your recovery time is always known.</p>
+    </div>
+    <div class="prot-cell">
+      <span class="prot-badge">Economics</span>
+      <h4>FinOps &amp; Cost Reporting</h4>
+      <p>Monthly cloud cost reports, rightsizing recommendations, and spend anomaly alerts — keeping your infrastructure investment predictable, visible, and tied to actual business value.</p>
+    </div>
+  </div>
+
+  <!-- OUTCOME STATEMENT -->
+  <div class="outcome-stmt">
+    <span class="os-label">The Outcome</span>
+    <div class="os-divider"></div>
+    <span class="os-text">Lower operational costs, faster implementation, and highly scalable systems that grow with your business — without the infrastructure overhead, vendor lock-in, or unpredictable costs of traditional software delivery.</span>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div>
+      <h2>Your infrastructure costs are higher than they need to be.</h2>
+      <p>Free SaaS Readiness Assessment — we'll model your current vs. cloud cost structure and identify your top three migration opportunities in five business days.</p>
+    </div>
+    <a href="mailto:contact@vrutsasolutions.com?subject=Get%20My%20Free%20SaaS%20Assessment%20-%20Vrutsa%20Solutions&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20request%20a%20free%20SaaS%20delivery%20model%20assessment.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="btn-cta">Get Your Free Assessment</a>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="ft-brand-name">
+        <span class="ft-brand-text"><span class="fnv">Vrutsa</span><span class="fns">Solutions</span></span>
+      </div>
+      <p>We help businesses achieve measurable outcomes through customised technology and scalable SaaS-based solutions — across industries, with confidentiality and precision.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="outcome-driven-approach.html">Outcome-Driven Approach</a></li>
+        <li><a href="saas-delivery-model.html">SaaS-Based Delivery</a></li>
+        <li><a href="industry-agnostic-expertise.html">Industry-Agnostic Expertise</a></li>
+        <li><a href="confidential-structured-process.html">Confidential &amp; Structured Process</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="./index.html#about">About Us</a></li>
+        <li><a href="./index.html#services">Services</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="mailto:contact@vrutsasolutions.com">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a></li>
+        <li><a href="https://www.vrutsasolutions.com">www.vrutsasolutions.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Vrutsa Solutions Pvt. Ltd. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

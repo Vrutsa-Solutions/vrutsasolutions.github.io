@@ -324,7 +324,7 @@ function About() {
         <h2 className="why-title">Why VRUTSA SOLUTIONS!</h2>
 
         {/* CARD 1 */}
-        <div className="why-card">
+        <div className="why-card" style={{ cursor: "pointer" }} onClick={() => window.location.href = "/outcome-driven-approach.html"}>
           <img src={`${process.env.PUBLIC_URL}/assets/outcome.png`} alt="Outcome" />
           <div>
             <h4>Outcome-driven approach</h4>
@@ -337,7 +337,7 @@ function About() {
         </div>
 
         {/* CARD 2 */}
-        <div className="why-card highlight">
+        <div className="why-card highlight" style={{ cursor: "pointer" }} onClick={() => window.location.href = "/saas-delivery-model.html"}>
           <div>
             <h4>SaaS-based delivery model</h4>
             <p>
@@ -349,7 +349,7 @@ function About() {
         </div>
 
         {/* CARD 3 */}
-        <div className="why-card">
+        <div className="why-card" style={{ cursor: "pointer" }} onClick={() => window.location.href = "/industry-agnostic-expertise.html"}>
           <img src={`${process.env.PUBLIC_URL}/assets/industry.png`} alt="Industry agnostic" />
           <div>
             <h4>Industry-agnostic expertise</h4>
@@ -361,7 +361,7 @@ function About() {
         </div>
 
         {/* CARD 4 */}
-        <div className="why-card highlight">
+        <div className="why-card highlight" style={{ cursor: "pointer" }} onClick={() => window.location.href = "/confidential-structured-process.html"}>
           <div>
             <h4>Confidential & structured process</h4>
             <p>
