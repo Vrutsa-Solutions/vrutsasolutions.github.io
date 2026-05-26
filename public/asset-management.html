@@ -166,6 +166,44 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
   .footer-socials { justify-content: center; }
 }
+
+/* ── Hamburger menu (mobile only) ── */
+.nav-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 8px;
+}
+.nav-toggle span {
+  display: block; width: 24px; height: 2.5px;
+  background: #0C396F; border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  z-index: 999; padding: 40px 20px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 1.2rem; font-weight: 500; color: #0C396F;
+  text-decoration: none; transition: color 0.2s ease;
+}
+.mobile-menu a:hover { color: #1c78c0; }
+.mobile-menu .nav-cta {
+  margin-top: 16px; padding: 12px 30px; font-size: .9rem;
+  color: #ffffff !important; background: #1A6FC4;
+  border-radius: 8px; font-weight: 700;
+}
+.mobile-menu .nav-cta:hover { background: #0C396F; }
+@media (max-width: 580px) {
+  .nav-toggle { display: flex; }
+}
 </style>
 </head>
 <body>
@@ -185,7 +223,17 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
     <a class="nav-link" href="./index.html#contact">Contact</a>
     <a class="nav-cta" href="mailto:contact@vrutsasolutions.com?subject=Talk%20to%20Experts%20-%20Vrutsa%20Solutions&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20speak%20with%20an%20expert%20about%20your%20services.%20Please%20get%20in%20touch.%0A%0AThank%20you.">Talk to Experts</a>
   </div>
+
+  <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="./" onclick="closeMobile()">Home</a>
+  <a href="./index.html#about" onclick="closeMobile()">About</a>
+  <a href="./index.html#services" onclick="closeMobile()">Services</a>
+  <a href="./index.html#contact" onclick="closeMobile()">Contact</a>
+  <a href="mailto:contact@vrutsasolutions.com?subject=Talk%20to%20Experts" class="nav-cta" onclick="closeMobile()">Talk to Experts</a>
+</div>
 
 <!-- PAGE CONTENT -->
 <div class="page-wrap">
@@ -336,5 +384,25 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
   </div>
 </footer>
 
+
+
+<script>
+  (function() {
+    const navToggleBtn = document.querySelector('.nav-toggle');
+    const mobileMenuEl = document.getElementById('mobileMenu');
+    if (navToggleBtn && mobileMenuEl) {
+      navToggleBtn.addEventListener('click', function() {
+        navToggleBtn.classList.toggle('open');
+        mobileMenuEl.classList.toggle('open');
+        document.body.style.overflow = mobileMenuEl.classList.contains('open') ? 'hidden' : '';
+      });
+    }
+    window.closeMobile = function() {
+      if (mobileMenuEl) mobileMenuEl.classList.remove('open');
+      if (navToggleBtn) navToggleBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+  })();
+</script>
 </body>
 </html>
