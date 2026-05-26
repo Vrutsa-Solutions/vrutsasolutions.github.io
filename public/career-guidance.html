@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="./mail-chooser.js" defer></script>
 <style>
+  .hero h1 { font-family: 'DM Serif Display', serif !important; font-weight: 400 !important; }
+</style>
+<style>
 
 :root {
   --logo-blue:      #0C396F;
@@ -282,7 +285,7 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
 }
 .footer-col-title {
   font-size: .68rem; font-weight: 700; letter-spacing: .13em;
-  text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 20px;
+  text-transform: uppercase; color: #ffffff; margin-bottom: 20px;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .footer-col ul li a {
@@ -339,6 +342,18 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
   .footer-inner { grid-template-columns: 1fr; }
 }
 
+
+/* ── Mobile footer centering ── */
+@media(max-width:580px) {
+  .footer-inner { text-align: center; }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; }
+  .footer-logo { justify-content: center; }
+  .footer-tagline { max-width: 100%; margin: 0 auto; }
+  .footer-col ul { align-items: center; }
+  .footer-contact-link { text-align: center; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  .footer-socials { justify-content: center; }
+}
 </style>
 </head>
 <body>
@@ -531,7 +546,7 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
     </div>
 
     <div class="footer-col">
-      <div class="footer-col-title">Get In Touch</div>
+      <div class="footer-col-title">Contact us</div>
       <a class="footer-contact-link" href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a>
       <a class="footer-contact-link" href="https://www.vrutsasolutions.com" target="_blank">www.vrutsasolutions.com</a>
     </div>
@@ -539,7 +554,7 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
   </div>
 
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Vrutsa Solutions. All rights reserved.</span>
+    <span class="footer-copy">© 2026 Vrutsa Solutions. All rights reserved. &nbsp;|&nbsp; <a href="/privacy-policy.html" style="color:rgba(255,255,255,.42);text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms-of-service.html" style="color:rgba(255,255,255,.42);text-decoration:none;">Terms of Service</a></span>
     <div class="footer-socials">
       <a class="footer-social-btn" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

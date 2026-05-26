@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="./mail-chooser.js" defer></script>
 <style>
+  .hero h1 { font-family: 'DM Serif Display', serif !important; font-weight: 400 !important; }
+</style>
+<style>
 
 :root {
   --logo-blue:      #0C396F;
@@ -120,7 +123,7 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
 .footer-brand-text .fv { color: #FFFFFF; }
 .footer-brand-text .fs { color: #4DB8FF; }
 .footer-tagline { font-size: .865rem; font-weight: 400; line-height: 1.65; color: rgba(255,255,255,0.55); max-width: 290px; }
-.footer-col-title { font-size: .68rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+.footer-col-title { font-size: .68rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .footer-col ul li a { font-size: .875rem; font-weight: 400; color: rgba(255,255,255,0.62); text-decoration: none; transition: color .18s; cursor: pointer; }
 .footer-col ul li a:hover { color: #fff; }
@@ -157,6 +160,18 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
   .nav-links { display: none; }
   .footer-inner { grid-template-columns: 1fr; }
 }
+
+/* ── Mobile footer centering ── */
+@media(max-width:580px) {
+  .footer-inner { text-align: center; }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; }
+  .footer-logo { justify-content: center; }
+  .footer-tagline { max-width: 100%; margin: 0 auto; }
+  .footer-col ul { align-items: center; }
+  .footer-contact-link { text-align: center; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  .footer-socials { justify-content: center; }
+}
 </style>
 </head>
 <body>
@@ -178,7 +193,7 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
 <div class="page-wrap">
 
   <div class="hero">
-    <div class="hero-accent">Tech</div>
+    <div class="hero-accent">06</div>
     <div class="hi">
       <div class="eyebrow">&#9889; Individual &middot; Tech Guidance</div>
       <h1>Navigate the<br><i>tech frontier.</i></h1>
@@ -323,13 +338,13 @@ body { font-family: 'Manrope', sans-serif; overflow-x: hidden; background: var(-
       </ul>
     </div>
     <div class="footer-col">
-      <div class="footer-col-title">Get In Touch</div>
+      <div class="footer-col-title">Contact us</div>
       <a class="footer-contact-link" href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a>
       <a class="footer-contact-link" href="https://www.vrutsasolutions.com" target="_blank">www.vrutsasolutions.com</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">&copy; 2026 Vrutsa Solutions. All rights reserved.</span>
+    <span class="footer-copy">&copy; 2026 Vrutsa Solutions. All rights reserved. &nbsp;|&nbsp; <a href="/privacy-policy.html" style="color:rgba(255,255,255,.42);text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms-of-service.html" style="color:rgba(255,255,255,.42);text-decoration:none;">Terms of Service</a></span>
     <div class="footer-socials">
       <a class="footer-social-btn" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.977 1.977 0 0 1-1.972-1.98 1.978 1.978 0 1 1 1.972 1.98zm1.979 13.019H3.356V9h3.96v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>

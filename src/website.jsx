@@ -29,12 +29,23 @@ export default function Website() {
 /* ================= HERO ================= */
 
 function Hero() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   const handleGetInTouch = () => {
+    setMobileMenuOpen(false);
     const section = document.getElementById("get-in-touch");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const closeMobile = () => setMobileMenuOpen(false);
 
   return (
     <section
@@ -56,10 +67,29 @@ function Hero() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <button className="cta-btn" onClick={handleGetInTouch}>
+        <button className="cta-btn cta-btn-desktop" onClick={handleGetInTouch}>
           GET IN TOUCH
         </button>
+
+        <button
+          className={`nav-toggle ${mobileMenuOpen ? "open" : ""}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span><span></span><span></span>
+        </button>
       </header>
+
+      <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
+        <a href="#home" onClick={closeMobile}>Home</a>
+        <a href="#services" onClick={closeMobile}>Services</a>
+        <a href="#about" onClick={closeMobile}>About</a>
+        <a href="#contact" onClick={closeMobile}>Contact</a>
+        <button className="cta-btn mobile-cta" onClick={handleGetInTouch}>
+          GET IN TOUCH
+        </button>
+      </div>
 
       <div className="hero-content">
         <p className="tagline">SaaS - Solutions as a Service</p>
@@ -419,9 +449,9 @@ function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="footer-bottom">
-          <a href="#">Privacy Policy</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
           <span>|</span>
-          <a href="#">Terms of Service</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
         </div>
       </footer>
     </footer>

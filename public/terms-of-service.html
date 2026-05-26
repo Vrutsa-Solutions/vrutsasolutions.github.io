@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | Vrutsa Solutions</title>
+  <meta name="description" content="Terms of Service for Vrutsa Solutions. The terms that govern how we work together — clear, fair, and built on mutual respect." />
+  <meta name="theme-color" content="#0a3d6b" />
+  <link rel="icon" href="./logo.png" />
+  <link rel="apple-touch-icon" href="./logo192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:         #0d3b72;
+      --navy-mid:     #0d4fa3;
+      --blue-primary: #1470af;
+      --blue-accent:  #1a8fc8;
+      --teal:         #137e8f;
+      --sky-soft:     #f0f9fe;
+      --blue-mist:    #f0f7fd;
+      --blue-ghost:   #f7fbfe;
+      --white:        #ffffff;
+      --gray-50:      #f9fafb;
+      --gray-200:     #e4e7ec;
+      --gray-300:     #d0d5dd;
+      --gray-500:     #5a8fad;
+      --gray-600:     #3d6e8a;
+      --gray-700:     #1e4a66;
+      --ease:         cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--gray-700);
+      line-height: 1.7;
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', serif;
+      color: var(--navy);
+      line-height: 1.2;
+      font-weight: 400;
+    }
+    a { text-decoration: none; color: inherit; transition: all .3s var(--ease); }
+    img { max-width: 100%; display: block; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(20,112,175,.07); transition: box-shadow .3s var(--ease); }
+    .nav.scrolled { box-shadow: 0 2px 24px rgba(13,59,114,.1); }
+    .nav-wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo-text { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.35rem; color: var(--navy); letter-spacing: -.5px; }
+    .nav-logo-text em { font-style: normal; color: var(--blue-primary); }
+    .nav-menu { display: flex; align-items: center; gap: 32px; }
+    .nav-menu a { font-size: .88rem; font-weight: 500; color: var(--gray-600); position: relative; padding: 4px 0; }
+    .nav-menu a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; border-radius: 2px; background: var(--blue-primary); transition: width .3s var(--ease); }
+    .nav-menu a:hover { color: var(--navy); }
+    .nav-menu a:hover::after { width: 100%; }
+    .nav-btn { display: inline-flex; align-items: center; background: var(--blue-primary); color: var(--white) !important; padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: .85rem; box-shadow: 0 2px 10px rgba(20,112,175,.28); }
+    .nav-btn:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .nav-btn::after { display: none !important; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 99; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.1rem; font-weight: 500; color: var(--gray-700); }
+    .mobile-menu .nav-btn { font-size: 1rem; padding: 12px 28px; }
+
+    /* ── HERO ── */
+    .page-hero { padding: 140px 40px 64px; background: linear-gradient(160deg, var(--blue-ghost) 0%, var(--white) 40%, var(--sky-soft) 75%, var(--white) 100%); border-bottom: 1px solid var(--gray-200); text-align: center; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(20,112,175,.08); border: 1px solid rgba(20,112,175,.15); padding: 7px 18px; border-radius: 100px; font-size: .78rem; font-weight: 600; color: var(--blue-primary); margin-bottom: 20px; }
+    .page-hero h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); color: var(--navy); letter-spacing: -.5px; margin-bottom: 14px; }
+    .page-hero p { font-size: .97rem; color: var(--gray-500); max-width: 520px; margin: 0 auto 20px; line-height: 1.75; }
+    .page-hero .meta { font-size: .8rem; color: var(--gray-500); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gray-300); display: inline-block; }
+
+    /* ── TOC ── */
+    .toc-bar { background: var(--white); border-bottom: 1px solid var(--gray-200); position: sticky; top: 70px; z-index: 90; padding: 0 40px; }
+    .toc-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    .toc-inner::-webkit-scrollbar { display: none; }
+    .toc-inner a { flex-shrink: 0; font-size: .82rem; font-weight: 600; color: var(--gray-500); padding: 13px 18px; border-bottom: 2px solid transparent; transition: all .25s var(--ease); white-space: nowrap; }
+    .toc-inner a:hover { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
+    .toc-inner a.active { color: var(--navy); border-bottom-color: var(--navy); }
+    .toc-divider { width: 1px; background: var(--gray-200); margin: 8px 6px; flex-shrink: 0; }
+    .toc-sibling { color: var(--blue-primary) !important; }
+    .toc-sibling:hover { color: var(--navy) !important; }
+
+    /* ── BODY ── */
+    .page-body { max-width: 840px; margin: 0 auto; padding: 60px 40px 96px; }
+    .policy-section { margin-bottom: 52px; scroll-margin-top: 140px; }
+    .policy-section:last-child { margin-bottom: 0; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-primary); margin-bottom: 8px; }
+    .section-label::before { content: ''; display: block; width: 22px; height: 2px; background: var(--blue-accent); border-radius: 2px; }
+    .policy-section h2 { font-size: clamp(1.35rem, 2.8vw, 1.8rem); color: var(--navy); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--gray-200); }
+    .policy-section h3 { font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px; }
+    .policy-section p { font-size: .95rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 14px; }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section strong { color: var(--navy); font-weight: 700; }
+    .highlight-box { background: var(--blue-mist); border: 1px solid rgba(20,112,175,.15); border-left: 4px solid var(--blue-primary); border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .highlight-box p { font-size: .92rem; color: var(--gray-700); margin: 0; line-height: 1.78; }
+    .policy-list { padding-left: 0; margin: 14px 0; }
+    .policy-list li { display: flex; gap: 14px; align-items: flex-start; font-size: .94rem; color: var(--gray-700); line-height: 1.75; margin-bottom: 10px; padding: 13px 16px; background: var(--gray-50); border-radius: 10px; border: 1px solid var(--gray-200); }
+    .policy-list li:last-child { margin-bottom: 0; }
+    .li-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--blue-accent); margin-top: 8px; }
+
+    /* ── SIBLING LINK CARD ── */
+    .sibling-card { margin-top: 60px; padding: 36px 40px; background: linear-gradient(140deg, var(--navy), var(--teal)); border-radius: 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .sibling-card-text h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 6px; font-family: 'DM Serif Display', serif; font-weight: 400; }
+    .sibling-card-text p { font-size: .88rem; color: rgba(255,255,255,.65); line-height: 1.65; margin: 0; max-width: 400px; }
+    .sibling-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--navy); padding: 13px 28px; border-radius: 10px; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: .88rem; white-space: nowrap; transition: all .3s var(--ease); }
+    .sibling-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(13,59,114,.22); }
+
+    /* ── CONTACT CARD ── */
+    .contact-card { margin-top: 48px; padding: 40px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 20px; text-align: center; }
+    .contact-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .contact-card p { font-size: .93rem; color: var(--gray-500); max-width: 440px; margin: 0 auto 24px; line-height: 1.75; }
+    .contact-card .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 32px; font-size: .9rem; }
+    .contact-card .links a { color: var(--blue-primary); font-weight: 600; }
+    .contact-card .links a:hover { color: var(--navy); }
+    .contact-card .links span { color: var(--gray-500); }
+
+    /* ── FOOTER ── */
+    .footer { background: linear-gradient(180deg, var(--navy) 0%, #091f3c 100%); padding: 72px 40px 32px; color: rgba(255,255,255,.5); }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 52px; }
+    .footer-brand .nav-logo-text { color: var(--white); font-size: 1.4rem; margin-bottom: 14px; display: block; }
+    .footer-brand p { font-size: .88rem; line-height: 1.78; max-width: 270px; }
+    .footer h5 { color: rgba(255,255,255,.85); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 11px; }
+    .footer li a { font-size: .86rem; color: rgba(255,255,255,.42); }
+    .footer li a:hover { color: var(--white); }
+    .footer-bar { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: .8rem; flex-wrap: wrap; gap: 16px; }
+    .footer-legal { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .footer-legal a { color: rgba(255,255,255,.42); font-size: .8rem; }
+    .footer-legal a:hover { color: var(--white); }
+    .footer-legal span { color: rgba(255,255,255,.2); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center; }
+    .footer-socials a:hover { background: var(--blue-primary); }
+    .footer-socials svg { width: 15px; height: 15px; fill: rgba(255,255,255,.45); }
+    .footer-socials a:hover svg { fill: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-wrap { padding: 0 24px; }
+      .page-hero { padding: 110px 24px 52px; }
+      .toc-bar { padding: 0 16px; }
+      .page-body { padding: 44px 20px 72px; }
+      .sibling-card { padding: 28px 24px; flex-direction: column; align-items: flex-start; border-radius: 16px; }
+      .contact-card { padding: 32px 20px; }
+      .footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 36px; }
+      .footer-bar { flex-direction: column; align-items: center; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: 1.7rem; }
+      .policy-section h2 { font-size: 1.25rem; }
+    }
+  
+/* ── Mobile footer centering ── */
+@media (max-width: 768px) {
+  .footer-grid { text-align: center; }
+  .footer-brand p { margin-left: auto; margin-right: auto; }
+  .footer h5 { text-align: center; }
+  .footer ul { padding: 0; }
+}
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-wrap">
+      <a href="/" class="nav-logo">
+        <img src="./logo.png" alt="Vrutsa Solutions Logo" />
+        <span class="nav-logo-text">Vrutsa<em>Solutions</em></span>
+      </a>
+      <div class="nav-menu">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#services">Services</a>
+        <a href="/#contact">Contact</a>
+        <a href="mailto:contact@vrutsasolutions.com?subject=Enquiry%20-%20Vrutsa%20Solutions&body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20get%20in%20touch.%0A%0AThank%20you." class="nav-btn">Get In Touch</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="/#about" onclick="closeMobile()">About</a>
+    <a href="/#services" onclick="closeMobile()">Services</a>
+    <a href="/#contact" onclick="closeMobile()">Contact</a>
+    <a href="mailto:contact@vrutsasolutions.com" class="nav-btn" onclick="closeMobile()">Get In Touch</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-tag">Legal</div>
+    <h1>Terms of Service</h1>
+    <p>The terms that govern how we work together — clear, fair, and built on mutual respect.</p>
+    <div class="meta">
+      <span>Vrutsa Solutions</span>
+      <span class="meta-dot"></span>
+      <span>Effective: January 2026</span>
+      <span class="meta-dot"></span>
+      <span>Chennai, Tamil Nadu, India</span>
+    </div>
+  </section>
+
+  <!-- TOC -->
+  <div class="toc-bar">
+    <div class="toc-inner">
+      <a href="#acceptance">Acceptance</a>
+      <a href="#services-we-offer">Services</a>
+      <a href="#responsibilities">Responsibilities</a>
+      <a href="#confidentiality">Confidentiality</a>
+      <a href="#intellectual-property">Intellectual Property</a>
+      <a href="#payments">Payments</a>
+      <a href="#liability">Liability</a>
+      <a href="#ai-disclaimer">AI Disclaimer</a>
+      <a href="#termination">Termination</a>
+      <a href="#governing-law">Governing Law</a>
+      <a href="#tos-updates">Updates</a>
+      <div class="toc-divider"></div>
+      <a href="/privacy-policy.html" class="toc-sibling">← Privacy Policy</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="page-body">
+
+    <div id="acceptance" class="policy-section">
+      <div class="section-label">Section 01</div>
+      <h2>Acceptance of Terms</h2>
+      <div class="highlight-box">
+        <p>By accessing our website or engaging Vrutsa Solutions for any service, you agree to these Terms of Service. If you are engaging us on behalf of a business, you confirm you have the authority to do so. These Terms form the baseline of our working relationship. Specific project details, deliverables, timelines, and fees will be agreed separately through a proposal or written communication.</p>
+      </div>
+    </div>
+
+    <div id="services-we-offer" class="policy-section">
+      <div class="section-label">Section 02</div>
+      <h2>Services We Offer</h2>
+      <p>Vrutsa Solutions is an early-stage consulting and technology firm currently offering the following services:</p>
+      <ul class="policy-list">
+        <li><span class="li-dot"></span>Business Consulting and Growth Strategy</li>
+        <li><span class="li-dot"></span>Artificial Intelligence and Automation Solutions</li>
+        <li><span class="li-dot"></span>Digital Transformation Advisory</li>
+        <li><span class="li-dot"></span>SaaS Development</li>
+        <li><span class="li-dot"></span>Technology Consulting</li>
+        <li><span class="li-dot"></span>Market Expansion Advisory</li>
+        <li><span class="li-dot"></span>Investor and Funding Consultation</li>
+        <li><span class="li-dot"></span>Asset Management Solutions</li>
+      </ul>
+      <p style="margin-top:14px;">Our service offerings may evolve as we grow. The specific scope of any engagement will be confirmed in writing before work begins.</p>
+    </div>
+
+    <div id="responsibilities" class="policy-section">
+      <div class="section-label">Section 03</div>
+      <h2>Your Responsibilities as a Client</h2>
+      <p>To help us deliver the best outcome, we ask that you:</p>
+      <ul class="policy-list">
+        <li><span class="li-dot"></span>Provide accurate and complete information relevant to the project</li>
+        <li><span class="li-dot"></span>Designate a point of contact who can provide timely feedback and approvals</li>
+        <li><span class="li-dot"></span>Communicate openly if your requirements or priorities change</li>
+        <li><span class="li-dot"></span>Treat our team with professional courtesy</li>
+        <li><span class="li-dot"></span>Make payments as agreed in the project proposal</li>
+      </ul>
+      <p style="margin-top:14px;">Delays caused by late approvals, missing information, or changing requirements may affect project timelines, and we will communicate this transparently if it arises.</p>
+    </div>
+
+    <div id="confidentiality" class="policy-section">
+      <div class="section-label">Section 04</div>
+      <h2>Confidentiality</h2>
+      <p>Both of us agree to keep each other's confidential information private. Anything shared during our engagement — business strategies, financial details, technical specifications, or any information understood to be sensitive — will not be disclosed to outside parties without consent.</p>
+      <p>This commitment continues even after our engagement ends.</p>
+    </div>
+
+    <div id="intellectual-property" class="policy-section">
+      <div class="section-label">Section 05</div>
+      <h2>Intellectual Property</h2>
+      <h3>Our Work</h3>
+      <p>All proprietary methodologies, internal tools, frameworks, and general knowledge we bring to an engagement remain ours.</p>
+      <h3>Your Materials</h3>
+      <p>Any content, data, brand assets, or materials you provide remain entirely yours.</p>
+      <h3>Deliverables</h3>
+      <p>Work we create specifically for your project belongs to you upon full payment, unless we agree otherwise in writing beforehand.</p>
+    </div>
+
+    <div id="payments" class="policy-section">
+      <div class="section-label">Section 06</div>
+      <h2>Payments &amp; Project Scope</h2>
+      <p>Fees and payment timelines will be clearly outlined in the project proposal before any work begins. We are a small business and timely payments allow us to serve you well. If scope changes are needed during a project, we will discuss and agree on any adjustments to timeline or cost before proceeding.</p>
+    </div>
+
+    <div id="liability" class="policy-section">
+      <div class="section-label">Section 07</div>
+      <h2>Limitation of Liability</h2>
+      <p>Vrutsa Solutions will always do its best to deliver quality work. However, we cannot be held responsible for indirect or consequential losses, including business losses, loss of revenue, or outcomes that depend on factors outside our control.</p>
+      <p>Our liability in any situation is limited to the fees paid for the specific engagement in question.</p>
+    </div>
+
+    <div id="ai-disclaimer" class="policy-section">
+      <div class="section-label">Section 08</div>
+      <h2>AI &amp; Technology Disclaimer</h2>
+      <p>Any AI-generated insights, automation outputs, or technology recommendations we provide are intended to support your business decisions — not replace professional legal, financial, or regulatory advice. You remain responsible for how you act on our recommendations, and we encourage consulting licensed professionals for matters in regulated domains.</p>
+    </div>
+
+    <div id="termination" class="policy-section">
+      <div class="section-label">Section 09</div>
+      <h2>Termination</h2>
+      <p>Either party may end an engagement with reasonable written notice. Work completed and expenses incurred up to that point are payable. We reserve the right to discontinue services in cases of non-payment, misuse, or conduct that is harmful to our team or reputation.</p>
+    </div>
+
+    <div id="governing-law" class="policy-section">
+      <div class="section-label">Section 10</div>
+      <h2>Governing Law</h2>
+      <p>These Terms are governed by the laws of India. In the event of any dispute, we will first try to resolve it through direct, good-faith conversation. If that does not work, disputes will be handled in accordance with applicable Indian law, with Chennai as the jurisdiction.</p>
+    </div>
+
+    <div id="tos-updates" class="policy-section">
+      <div class="section-label">Section 11</div>
+      <h2>Updates to These Terms</h2>
+      <p>We may revise these Terms as our business grows. Any material changes will be communicated to active clients. Continued use of our services after an update means you accept the revised Terms.</p>
+    </div>
+
+    <!-- Link to Privacy Policy -->
+    <div class="sibling-card">
+      <div class="sibling-card-text">
+        <h3>Also read our Privacy Policy</h3>
+        <p>Learn how we collect, store, and protect your information — and what rights you have over your data.</p>
+      </div>
+      <a href="/privacy-policy.html" class="sibling-btn">&larr; View Privacy Policy</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <h3>Questions?</h3>
+      <p>If you have any questions about these Terms, please reach out — we'll get back to you promptly.</p>
+      <div class="links">
+        <span><strong style="color:var(--navy);">Vrutsa Solutions</strong> &mdash; Chennai, Tamil Nadu, India</span>
+        <a href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a>
+        <a href="https://www.vrutsasolutions.com" target="_blank" rel="noopener noreferrer">www.vrutsasolutions.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">Vrutsa<em style="font-style:normal;color:#4DB8FF;">Solutions</em></span>
+        <p>We Solve Real Business &amp; Individual Problems with Scalable Solutions.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/business-solutions.html">Business Solutions</a></li>
+          <li><a href="/technology-saas.html">Technology &amp; SaaS</a></li>
+          <li><a href="/ai-automation.html">AI &amp; Automation</a></li>
+          <li><a href="/digital-transformation.html">Digital Transformation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/#about">About Us</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#contact">Careers</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@vrutsasolutions.com">contact@vrutsasolutions.com</a></li>
+          <li><a href="/">www.vrutsasolutions.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="footer-legal">
+        <span>&copy; 2026 Vrutsa Solutions. All rights reserved.</span>
+        <span>|</span>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <span>|</span>
+        <a href="/terms-of-service.html">Terms of Service</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/vrutsa-solutions/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/vrutsa_solutions/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://x.com" aria-label="X / Twitter" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+    const toggle = document.getElementById('navToggle');
+    const mobile = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => mobile.classList.toggle('open'));
+    function closeMobile() { mobile.classList.remove('open'); }
+    const tocLinks = document.querySelectorAll('.toc-inner a:not(.toc-sibling)');
+    const sections = Array.from(tocLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const onScroll = () => {
+      let current = '';
+      sections.forEach(sec => { if (window.scrollY + 150 >= sec.offsetTop) current = '#' + sec.id; });
+      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === current));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>
