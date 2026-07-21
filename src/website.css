@@ -1137,3 +1137,168 @@ img {
         font-size: 12px;
     }
 }
+
+/* ================= PRODUCTS SECTION (NEW — appended only) =================
+   Everything above this line is your original file, unchanged.
+   Uses your real brand variables from :root:
+   --logo-blue (#0C396F), --logo-blue-light (#0f74ae),
+   --logo-blue-hover (#1c78c0), --logo-green (#3E9B38)
+   ============================================================ */
+
+.productsSection {
+    background: #fff;
+    padding: 90px 100px;
+}
+
+.productsList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.product-card {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 40px 44px;
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 12px 30px rgba(5, 64, 112, 0.1);
+    transform: translateY(-2px);
+}
+
+.product-card-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.product-logo-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.product-logo-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.product-head-text {
+    flex: 1;
+}
+
+.product-name-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* Note: h3 already inherits DM Serif Display from the global h1–h6 rule
+   above. Overriding color to black here matches how .cardTitle (also an
+   h3, in Services) intentionally breaks from the default blue heading color. */
+.product-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+}
+
+.product-status {
+    font-size: 12px;
+    font-weight: 600;
+    border: 1.5px solid;
+    border-radius: 20px;
+    padding: 3px 12px;
+}
+
+.product-tagline {
+    color: var(--logo-blue-hover);
+    font-weight: 600;
+    font-size: 14px;
+    margin: 6px 0 0;
+}
+
+.product-desc {
+    color: #4b5563;
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin: 0 0 22px;
+}
+
+.product-features {
+    margin-bottom: 26px;
+}
+
+.product-features-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--logo-blue);
+    margin-bottom: 10px;
+}
+
+.product-features ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.product-features li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.product-features li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--logo-blue-hover);
+    font-weight: 700;
+}
+
+.product-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #1f7fbf, #0b5fa5);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+    transition: all .3s ease;
+}
+
+.product-cta:hover {
+    background: linear-gradient(135deg, #2c8fd6, #0f6fbf);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+    .productsSection { padding: 70px 24px; }
+    .product-card { padding: 28px 24px; }
+    .product-card-head { flex-direction: column; }
+    .product-name-row { gap: 10px; }
+}

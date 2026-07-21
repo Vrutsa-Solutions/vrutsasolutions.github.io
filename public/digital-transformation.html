@@ -14,7 +14,14 @@
   <script src="./mail-chooser.js" defer></script>
   <style>
     h1, h2, h3, h4, h5, h6 { font-family: 'DM Serif Display', serif !important; font-weight: 400 !important; }
-  </style>
+  
+    /* --- standardized CTA button sizing --- */
+    .nav-btn {
+      display: inline-flex !important; align-items: center; gap: 6px;
+      padding: 11px 26px !important; font-size: .85rem !important;
+      border-radius: 30px !important; white-space: nowrap;
+    }
+    </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -776,9 +783,9 @@
       </a>
       <div class="nav-menu">
         <a href="/">Home</a>
-        <a href="/#about">About</a>
         <a href="/#services" class="current">Services</a>
-        <a href="/#contact">Contact</a>
+        <a href="/products.html">Products</a>
+        <a href="/#about">About</a>
         <a href="mailto:contact@vrutsasolutions.com?subject=Book%20Consultation%20-%20Digital%20Transformation&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20book%20a%20consultation%20about%20Digital%20Transformation.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="nav-btn">
           Book Consultation
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
@@ -793,6 +800,7 @@
     <a href="/"        onclick="closeMobile()">Home</a>
     <a href="/#about"  onclick="closeMobile()">About</a>
     <a href="/#services" onclick="closeMobile()">Services</a>
+    <a href="/products.html" onclick="closeMobile()">Products</a>
     <a href="/#contact" onclick="closeMobile()">Contact</a>
     <a href="mailto:contact@vrutsasolutions.com?subject=Book%20Consultation%20-%20Digital%20Transformation&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20book%20a%20consultation%20about%20Digital%20Transformation.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="btn btn-fill" onclick="closeMobile()">Book Consultation</a>
   </div>
@@ -1037,7 +1045,8 @@
         <ul>
           <li><a href="/#about">About Us</a></li>
           <li><a href="/#services">Services</a></li>
-          <li><a href="/#contact">Careers</a></li>
+          <li><a href="/products.html">Products</a></li>
+        <li><a href="/#contact">Careers</a></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
       </div>

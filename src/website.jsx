@@ -63,8 +63,9 @@ function Hero() {
         <nav className="nav-links">
           <a href="#home">Home</a>
           <a href="#services">Services</a>
+          <a href="/products.html">Products</a>
           <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+        
         </nav>
 
         <button className="cta-btn cta-btn-desktop" onClick={handleGetInTouch}>
@@ -84,6 +85,7 @@ function Hero() {
       <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
         <a href="#home" onClick={closeMobile}>Home</a>
         <a href="#services" onClick={closeMobile}>Services</a>
+        <a href="/products.html">Products</a>
         <a href="#about" onClick={closeMobile}>About</a>
         <a href="#contact" onClick={closeMobile}>Contact</a>
         <button className="cta-btn mobile-cta" onClick={handleGetInTouch}>
@@ -437,7 +439,7 @@ function Footer() {
             <div className="contact-block">
               <h4>Contact</h4>
               <p><a href="callto:+91-9994586462">+91-9994586462</a></p>
-              <p ><a href="mailto:contact@vrutsasolutions.com" target="_blank">contact@vrutsasolutions.com</a></p>
+              <p ><a href="mailto:contact@vrutsasolutions.com" target="_blank" rel="noopener noreferrer">contact@vrutsasolutions.com</a></p>
             </div>
 
             <div className="contact-block">
@@ -781,4 +783,3 @@ function Contact() {
     </div>
   );
 }
-

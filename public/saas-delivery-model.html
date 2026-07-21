@@ -531,6 +531,12 @@ body { font-family: "Poppins", "Segoe UI", sans-serif; background: #fff; color: 
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
   .footer-socials { justify-content: center; }
 }
+
+.nav-cta-btn {
+  display: inline-flex !important; align-items: center;
+  padding: 9px 22px !important; font-size: .84rem !important;
+  white-space: nowrap !important;
+}
 </style>
 </head>
 <body>
@@ -544,9 +550,9 @@ body { font-family: "Poppins", "Segoe UI", sans-serif; background: #fff; color: 
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="./">Home</a></li>
-      <li><a href="./index.html#about">About</a></li>
       <li><a href="./index.html#services">Services</a></li>
-      <li><a href="./index.html#about" class="active">Why Vrutsa?</a></li>
+      <li><a href="/products.html">Products</a></li>
+      <li><a href="./index.html#about">About</a></li>
       <li><a href="mailto:contact@vrutsasolutions.com?subject=Talk%20to%20Experts%20-%20Vrutsa%20Solutions&amp;body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20speak%20with%20an%20expert%20about%20your%20services.%20Please%20get%20in%20touch.%0A%0AThank%20you." class="nav-cta-btn">Talk to Experts</a></li>
     </ul>
     <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
