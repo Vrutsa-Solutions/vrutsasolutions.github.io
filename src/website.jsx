@@ -63,7 +63,7 @@ function Hero() {
         <nav className="nav-links">
           <a href="#home">Home</a>
           <a href="#services">Services</a>
-          <a href="/products.html">Products</a>
+          <a href="\products.html">Products</a>
           <a href="#about">About</a>
         
         </nav>
