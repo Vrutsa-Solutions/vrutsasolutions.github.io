@@ -173,7 +173,14 @@
   .footer h5 { text-align: center; }
   .footer ul { padding: 0; }
 }
-</style>
+
+    /* --- standardized CTA button sizing --- */
+    .nav-btn {
+      display: inline-flex !important; align-items: center; gap: 6px;
+      padding: 11px 26px !important; font-size: .85rem !important;
+      border-radius: 30px !important; white-space: nowrap;
+    }
+    </style>
 </head>
 <body>
 
@@ -186,9 +193,9 @@
       </a>
       <div class="nav-menu">
         <a href="/">Home</a>
-        <a href="/#about">About</a>
         <a href="/#services">Services</a>
-        <a href="/#contact">Contact</a>
+        <a href="/products.html">Products</a>
+        <a href="/#about">About</a>
         <a href="mailto:contact@vrutsasolutions.com?subject=Enquiry%20-%20Vrutsa%20Solutions&body=Hi%20Vrutsa%20Solutions%20Team%2C%0A%0AI%27d%20like%20to%20get%20in%20touch.%0A%0AThank%20you." class="nav-btn">Get In Touch</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -200,6 +207,7 @@
     <a href="/" onclick="closeMobile()">Home</a>
     <a href="/#about" onclick="closeMobile()">About</a>
     <a href="/#services" onclick="closeMobile()">Services</a>
+    <a href="/products.html" onclick="closeMobile()">Products</a>
     <a href="/#contact" onclick="closeMobile()">Contact</a>
     <a href="mailto:contact@vrutsasolutions.com" class="nav-btn" onclick="closeMobile()">Get In Touch</a>
   </div>
@@ -375,7 +383,8 @@
         <ul>
           <li><a href="/#about">About Us</a></li>
           <li><a href="/#services">Services</a></li>
-          <li><a href="/#contact">Careers</a></li>
+          <li><a href="/products.html">Products</a></li>
+        <li><a href="/#contact">Careers</a></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
       </div>
